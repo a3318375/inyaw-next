@@ -4,9 +4,9 @@ WORKDIR /app
 
 RUN npm install next@latest react@latest react-dom@latest
 
-ADD .next ./
-ADD package.json ./
-ADD package-lock.json ./
+COPY .next .
+COPY package.json .
+COPY package-lock.json .
 
 RUN pwd
 RUN ls
