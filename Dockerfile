@@ -4,11 +4,8 @@ WORKDIR /app
 
 RUN npm install next@latest react@latest react-dom@latest
 
-COPY .next .
-COPY package.json .
-COPY package-lock.json .
+ADD . .
 
-RUN pwd
 RUN ls
 
 EXPOSE 3000

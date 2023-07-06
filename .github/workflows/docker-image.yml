@@ -20,6 +20,10 @@ jobs:
         run: npm install
       - name: Build
         run: npm run build
+      - name: 查看当前文件夹
+        run: ls
+      - name: 删除无用文件夹
+        run: rm -rf src public node_modules
       - uses: mr-smithers-excellent/docker-build-push@v5
         name: Build & push Docker image
         with:
