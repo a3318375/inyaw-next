@@ -60,7 +60,7 @@ export default async function Article({params: {id}}: { params: { id: number } }
                     <div
                         className="card w-full rounded-none bg-base-100 opacity-80 shadow-xl lg:grid lg:grid-cols-12 px-5 py-4">
                         <div className="col-span-2">
-                            <img src="https://media.inyaw.com/icon/avatar.png!inyaa" className="w-12 rounded-full"/>
+                            <img src="https://media.inyaw.com/icon/avatar.png!inyaa" className="w-12 rounded-full" alt="avaer" />
                         </div>
                         <div className="col-span-10">
                             <div className="flex flex-col">

@@ -4,8 +4,8 @@ import type {PostsPage} from '@/api/service'
 import {ClockIcon, FireIcon, ChatBubbleBottomCenterTextIcon, WalletIcon} from '@heroicons/react/24/outline'
 
 
-async function findBlogList() {
-    const res = await fetch('https://admin.inyaw.com/api/blog/web/page?page=' + 1)
+async function findBlogList(page: number) {
+    const res = await fetch('https://admin.inyaw.com/api/blog/web/page?page=' + page)
     const post = await res.json()
     if (post && post.code && post.code === 1) {
         return post.data;
@@ -14,14 +14,14 @@ async function findBlogList() {
     }
 }
 
-export default async function Home() {
-    const posts: PostsPage = await findBlogList()
+export default async function Page({params: {page}}: { params: { page: number } }) {
+    const posts: PostsPage = await findBlogList(page)
     return (
         <div>
             {(posts && posts.content && posts.content.length > 0) && posts.content.map((item, index) => {
                 return (
                     <div key={index} className="grid card rounded-box">
-                        <a href={'/article/' + item.id}>
+                        <Link href={'/article/' + item.id}>
                             <div className="card w-full h-4/5 glass static overflow-hidden">
                                 <figure>
                                     <img src={item.cover + '!inyaa'}
@@ -45,12 +45,12 @@ export default async function Home() {
                                     <p className="truncate ...">{item.summary}</p>
                                 </div>
                             </div>
-                        </a>
+                        </Link>
                     </div>
                 );
             })}
             <div className="flex justify-center">
-                <Link className={clsx(posts.number + 1 > posts.totalPages ? '' : 'none')} href={'/blog/' + 2}>
+                <Link className={clsx(posts.number + 1 > posts.totalPages ? '' : 'none')} href={'/blog/' + (page + 1)}>
                     <button className="btn btn-outline text-base-100">下一页</button>
                 </Link>
             </div>

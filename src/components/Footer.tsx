@@ -1,4 +1,3 @@
-import {Lv2d} from "@/components/Lv2d";
 
 async function findFooterList() {
     const res = await fetch('https://admin.inyaw.com/api/config/findAll')
@@ -14,7 +13,6 @@ export default async function Footer() {
     const config = await findFooterList()
     return (
         <>
-            <Lv2d/>
             <footer className="footer px-10 py-4 text-primary-content">
                 <div className="items-center grid-flow-col">
                     <svg width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"
