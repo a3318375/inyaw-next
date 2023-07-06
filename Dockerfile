@@ -1,5 +1,7 @@
 FROM node:latest
 
+WORKDIR /app
+
 RUN npm install next@latest react@latest react-dom@latest
 
 ADD .next ./
