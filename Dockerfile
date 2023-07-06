@@ -1,4 +1,4 @@
-FROM node:lts-alpine
+FROM node:latest
 
 RUN npm install next@latest react@latest react-dom@latest
 
