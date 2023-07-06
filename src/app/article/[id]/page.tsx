@@ -1,6 +1,5 @@
 import {BlogInfoType} from "@/api/service";
 import {ChatBubbleBottomCenterTextIcon, ClockIcon, FireIcon, WalletIcon} from '@heroicons/react/24/outline';
-import { MDXRemote } from 'next-mdx-remote/rsc'
 import {Metadata} from "next";
 import Markdown from "@/components/Markdown";
 
