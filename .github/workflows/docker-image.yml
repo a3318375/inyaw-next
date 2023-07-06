@@ -16,11 +16,10 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: 18
-      - uses: c-hive/gha-yarn-cache@v2
       - name: Install
-        run: yarn install
+        run: npm install
       - name: Build
-        run: yarn build
+        run: npm run build
       - uses: mr-smithers-excellent/docker-build-push@v5
         name: Build & push Docker image
         with:
