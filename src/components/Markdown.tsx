@@ -3,9 +3,8 @@
 import markdownItAnchor from "markdown-it-anchor"
 import highlightjs from 'markdown-it-highlightjs'
 import markdownIt from "markdown-it"
-import markdownItToc from "markdown-it-toc-done-right"
 
-export default function Markdown({context}) {
+export default function Markdown({context}: { context: string }) {
     const html = markdownIt()
         .use(markdownItAnchor)
         .use(highlightjs)

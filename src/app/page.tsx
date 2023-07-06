@@ -40,7 +40,7 @@ export default async function Home() {
                                         <ChatBubbleBottomCenterTextIcon
                                             className="text-sm ml-1 inline-block bg-base-500 w-4 h-4"/><span> {item.comments} 条评论</span>
                                         <WalletIcon
-                                            className="text-sm ml-1 inline-block bg-base-500 w-4 h-4"/><span> {item.type.name}</span>
+                                            className="text-sm ml-1 inline-block bg-base-500 w-4 h-4"/><span> {item.type?.name}</span>
                                     </div>
                                     <p className="truncate ...">{item.summary}</p>
                                 </div>

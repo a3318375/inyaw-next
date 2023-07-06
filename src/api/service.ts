@@ -126,11 +126,11 @@ export const findArchiveList = async () => {
 }
 
 export type PostsPage = {
-    totalPages?: number;
+    totalPages: number;
     totalElements?: number;
     size?: number;
     content?: InyaaBlogVo[];
-    number?: number;
+    number: number;
     numberOfElements?: number;
     first?: boolean;
     last?: boolean;
@@ -156,3 +156,17 @@ export type InyaaBlogVo = {
 export type PageDataType = {
     posts?: PostsPage;
 }
+
+export type InyaaSysMenu = {
+    id?: number;
+    name?: string;
+    path?: string;
+    icon?: string;
+    component?: string;
+    isShow?: boolean;
+    parentId?: number;
+    isExt?: boolean;
+    sort?: number;
+    createTime?: string;
+    updateTime?: string;
+};

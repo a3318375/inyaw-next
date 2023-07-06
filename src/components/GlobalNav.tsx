@@ -2,6 +2,7 @@ import {userNoLoginNav, userLoginNav} from './NavDatas';
 import clsx from 'clsx';
 import Logo from './Logo';
 import ThemeChange from '../components/ThemeChange';
+import {InyaaSysMenu} from "@/api/service";
 
 
 async function findNavList() {
@@ -15,7 +16,7 @@ async function findNavList() {
 }
 
 export default async function GlobalNav() {
-    const navItems = await findNavList()
+    const navItems: InyaaSysMenu[] = await findNavList()
     const menuShow = true;
     const userNav = false ? userLoginNav : userNoLoginNav;
     return (
@@ -33,7 +34,7 @@ export default async function GlobalNav() {
             </div>
             <div className='flex-none hidden lg:block'>
                 <ul className='menu menu-horizontal'>
-                    {navItems?.map((item, index) => {
+                    {navItems && navItems.map((item, index) => {
                         return (
                             <li key={index}>
                                 <a href={item.path}>{item.name}</a>
