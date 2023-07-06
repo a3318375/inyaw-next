@@ -1,9 +1,7 @@
 export const findBlogPage = async (page: number) => {
-    console.log(111)
     return await fetch('https://admin.inyaw.com/api/blog/web/page?page=' + page)
         .then(response => response.json())
         .then(data => {
-            console.log(111)
             if (data && data.code && data.data && data.code === 1) {
                 return data.data;
             } else {
@@ -97,7 +95,7 @@ export type BlogInfoType = {
     isComment?: boolean;
     isHot?: boolean;
     type?: InyaaBlogType;
-    article?: InyaaBlogArticle;
+    article: InyaaBlogArticle;
 }
 
 type InyaaBlogType = {
@@ -111,8 +109,8 @@ type InyaaBlogType = {
 }
 
 type InyaaBlogArticle = {
-    id?: number;
-    context?: string;
+    id: number;
+    context: string;
 }
 
 export const findArchiveList = async () => {
@@ -127,7 +125,7 @@ export const findArchiveList = async () => {
         })
 }
 
-type PostsPage = {
+export type PostsPage = {
     totalPages?: number;
     totalElements?: number;
     size?: number;
@@ -139,7 +137,7 @@ type PostsPage = {
     empty?: boolean;
 }
 
-type InyaaBlogVo = {
+export type InyaaBlogVo = {
     id?: number;
     title?: string;
     cover?: string;

@@ -4,8 +4,18 @@ import Logo from './Logo';
 import ThemeChange from '../components/ThemeChange';
 
 
-export default function GlobalNav() {
-    const navItems = []
+async function findNavList() {
+    const res = await fetch('https://admin.inyaw.com/api/menu/findMenuList')
+    const post = await res.json()
+    if (post && post.code && post.code === 1) {
+        return post.data;
+    } else {
+        return {}
+    }
+}
+
+export default async function GlobalNav() {
+    const navItems = await findNavList()
     const menuShow = true;
     const userNav = false ? userLoginNav : userNoLoginNav;
     return (

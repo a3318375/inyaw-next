@@ -1,11 +1,10 @@
-'use client'
-
-import {useRouter} from 'next/navigation'
+import Link from 'next/link'
+import clsx from 'clsx';
+import type {PostsPage} from '@/api/service'
 import {ClockIcon, FireIcon, ChatBubbleBottomCenterTextIcon, WalletIcon} from '@heroicons/react/24/outline'
 
 
 async function findBlogList() {
-    console.log(1145)
     const res = await fetch('https://admin.inyaw.com/api/blog/web/page?page=' + 1)
     const post = await res.json()
     if (post && post.code && post.code === 1) {
@@ -16,15 +15,7 @@ async function findBlogList() {
 }
 
 export default async function Home() {
-    const navItems = await findBlogList()
-    console.log(2245, navItems)
-    const posts = {}
-    const router = useRouter()
-    const toNext = (nowPage: number, allPage: number) => {
-        if (nowPage < allPage) {
-            router.push('/page/' + (nowPage + 1))
-        }
-    }
+    const posts: PostsPage = await findBlogList()
     return (
         <div>
             {(posts && posts.content && posts.content.length > 0) && posts.content.map((item, index) => {
@@ -59,10 +50,9 @@ export default async function Home() {
                 );
             })}
             <div className="flex justify-center">
-                <button className="btn btn-outline text-base-100" onClick={() => {
-                    toNext(posts.number + 1, posts.totalPages)
-                }}>下一页
-                </button>
+                <Link className={clsx(posts.number + 1 > posts.totalPages ? '' : 'none')} href={'page/' + 2}>
+                    <button className="btn btn-outline text-base-100">下一页</button>
+                </Link>
             </div>
         </div>
     )

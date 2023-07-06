@@ -7,12 +7,18 @@ module.exports = {
   ],
   theme: {
     extend: {
+      zIndex: {
+        '-999': '-999',
+        '999': '999',
+      },
       backgroundImage: {
-        'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
-        'gradient-conic':
-          'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
+        'img-default': "url(https://media.inyaw.com/cover/7037ade43b1e484eac903a111b7ea709.jpg)",
+        'img-mobile-default': "url(https://media.inyaw.com/cover/14db2cf6e4b441368243b23722d212c9.png)",
       },
     },
   },
-  plugins: [require('daisyui'),],
+  plugins: [
+    require('@tailwindcss/typography'),
+    require('daisyui'),
+  ],
 }
