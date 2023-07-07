@@ -2,12 +2,12 @@
 
 import {useEffect} from "react";
 
-export async function Lv2d() {
+export function Lv2d() {
     const initLv2d = () => {
         // @ts-ignore
         new l2dViewer({
             el: document.getElementById('L2dCanvas'), // 要添加Live2d的元素, 支持dom选择器和jq选择器
-            basePath: 'https://www.inyaw.com/lv2d/live2d/model', // 模型根目录
+            basePath: 'https://media.inyaw.com/lv2d/moc3', // 模型根目录
             width: 1000,
             height: 800,
             modelName: 'xuefeng_3', // 模型名称

@@ -24,7 +24,7 @@ export default async function Page({params: {page}}: { params: { page: number } 
                         <Link href={'/article/' + item.id}>
                             <div className="card w-full h-4/5 glass static overflow-hidden">
                                 <figure>
-                                    <img src={item.cover + '!inyaa'}
+                                    <img src="https://media.inyaw.com/cover/test123.jpg"
                                          className="transform transition duration-700 hover:scale-110" alt="car!"/>
                                 </figure>
                                 <div

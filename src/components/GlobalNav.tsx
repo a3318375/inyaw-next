@@ -1,52 +1,37 @@
+import Link from 'next/link'
 import {userNoLoginNav, userLoginNav} from './NavDatas';
-import clsx from 'clsx';
 import Logo from './Logo';
 import ThemeChange from '../components/ThemeChange';
-import {InyaaSysMenu} from "@/api/service";
 
-
-async function findNavList() {
-    const res = await fetch('https://admin.inyaw.com/api/menu/findMenuList')
-    const post = await res.json()
-    if (post && post.code && post.code === 1) {
-        return post.data;
-    } else {
-        return {}
-    }
-}
-
-export default async function GlobalNav() {
-    const navItems: InyaaSysMenu[] = await findNavList()
-    const menuShow = true;
+export default function GlobalNav({menuShow}) {
     const userNav = false ? userLoginNav : userNoLoginNav;
     return (
-        <div
-            className={clsx(
-                'hidden md:navbar bg-opacity-60 sticky top-0 z-999 bg-base-100 transition duration-500',
-                menuShow ? 'translate-y-0' : '-translate-y-16',
-            )}
+        <div id="menuTop"
+            className={'hidden md:navbar bg-opacity-60 sticky top-0 z-999 bg-base-100 transition duration-500'}
         >
             <div className='flex-1'>
                 <Logo/>
             </div>
-            <div className='flex-none hidden lg:block'>
-                <div id="aplayer" className="hidden lg:block"/>
+            <div className='flex-none hidden md:block'>
+                <div id="aplayer" className="hidden md:block"/>
             </div>
-            <div className='flex-none hidden lg:block'>
+            <div className='flex-none hidden md:block'>
                 <ul className='menu menu-horizontal'>
-                    {navItems && navItems.map((item, index) => {
-                        return (
-                            <li key={index}>
-                                <a href={item.path}>{item.name}</a>
-                            </li>
-                        );
-                    })}
+                    <li>
+                        <Link href="/">首页</Link>
+                    </li>
+                    <li>
+                        <Link href="/">归档</Link>
+                    </li>
+                    <li>
+                        <Link href="/">关于我</Link>
+                    </li>
                 </ul>
             </div>
-            <div className='flex-none hidden lg:block'>
+            <div className='flex-none hidden md:block'>
                 <ThemeChange/>
             </div>
-            <div className='flex-none hidden lg:block'>
+            <div className='flex-none hidden md:block'>
                 <button className='btn btn-ghost btn-circle'>
                     <svg xmlns='http://www.w3.org/2000/svg' className='h-5 w-5' fill='none' viewBox='0 0 24 24'
                          stroke='currentColor'>
@@ -57,7 +42,7 @@ export default async function GlobalNav() {
                     </svg>
                 </button>
             </div>
-            <div className='flex-none hidden lg:block'>
+            <div className='flex-none hidden md:block'>
                 <div className='dropdown dropdown-end'>
                     <label tabIndex={0} className='btn btn-ghost btn-circle avatar'>
                         {false ? <img src='user.inyaaSysUserDetail.avatar' className='rounded-full w-6 h-6'/> :

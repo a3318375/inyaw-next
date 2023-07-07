@@ -20,33 +20,27 @@ export default async function Home() {
         <div>
             {(posts && posts.content && posts.content.length > 0) && posts.content.map((item, index) => {
                 return (
-                    <div key={index} className="grid card rounded-box">
-                        <a href={'/article/' + item.id}>
-                            <div className="card w-full h-4/5 glass static overflow-hidden">
-                                <figure>
-                                    <img src={item.cover + '!inyaa'}
-                                         className="transform transition duration-700 hover:scale-110" alt="car!"/>
-                                </figure>
-                                <div
-                                    className="card-body w-full absolute bottom-0 bg-base-content bg-opacity-60 text-base-100 p-3 transition duration-500 translate-y-8 hover:translate-y-0">
-                                    <h2 className="card-title block w-full">
-                                        {item.title}
-                                    </h2>
-                                    <div className="text-xs">
-                                        <ClockIcon
-                                            className="text-sm inline-block bg-base-500 w-4 h-4"/><span> 发表于 {item.createTime}</span>
-                                        <FireIcon
-                                            className="text-sm ml-1 inline-block bg-base-500 w-4 h-4"/><span> {item.views} 热度</span>
-                                        <ChatBubbleBottomCenterTextIcon
-                                            className="text-sm ml-1 inline-block bg-base-500 w-4 h-4"/><span> {item.comments} 条评论</span>
-                                        <WalletIcon
-                                            className="text-sm ml-1 inline-block bg-base-500 w-4 h-4"/><span> {item.type?.name}</span>
+                    <>
+                        <div key={index} className="grid card rounded-box">
+                            <Link href={'/article/' + item.id}>
+                                <div className="card lg:card-side bg-base-100 shadow-xl lg:max-w-4xl flex">
+                                    <figure
+                                        className={clsx(index % 2 === 0 ? 'lg:w-1/2 overflow-hidden lg:order-2' : 'lg:w-1/2 overflow-hidden lg:order-4')}>
+                                        <img src="https://media.inyaw.com/cover/test123.jpg"
+                                             className="h-75 transform transition duration-700 hover:scale-110"/>
+                                    </figure>
+                                    <div
+                                        className={clsx(index % 2 === 0 ? 'card-body lg:w-1/2 lg:float-left lg:order-4' : 'card-body lg:w-1/2 lg:float-left lg:order-2')}>
+                                        <h2 className="card-title">
+                                            {item.title}
+                                        </h2>
+                                        <p className="truncate ...">{item.summary}</p>
                                     </div>
-                                    <p className="truncate ...">{item.summary}</p>
                                 </div>
-                            </div>
-                        </a>
-                    </div>
+                            </Link>
+                        </div>
+                        <div className="divider"/>
+                    </>
                 );
             })}
             <div className="flex justify-center">
