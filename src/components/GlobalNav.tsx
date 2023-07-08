@@ -2,12 +2,16 @@ import Link from 'next/link'
 import {userNoLoginNav, userLoginNav} from './NavDatas';
 import Logo from './Logo';
 import ThemeChange from '../components/ThemeChange';
+import clsx from "clsx";
 
-export default function GlobalNav({menuShow}) {
+export default function GlobalNav({menuShow}: { menuShow: boolean }) {
     const userNav = false ? userLoginNav : userNoLoginNav;
     return (
         <div id="menuTop"
-            className={'hidden md:navbar bg-opacity-60 sticky top-0 z-999 bg-base-100 transition duration-500'}
+             className={clsx(
+                 'hidden md:navbar bg-opacity-60 sticky top-0 z-999 bg-base-100 transition duration-500',
+                 menuShow ? 'translate-y-0' : '-translate-y-16',
+             )}
         >
             <div className='flex-1'>
                 <Logo/>

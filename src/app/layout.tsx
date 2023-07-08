@@ -1,4 +1,5 @@
 import '@/assets/css/globals.css'
+import '@/assets/css/APlayer.min.css'
 import {Metadata} from "next";
 import LayoutContent from "@/components/LayoutContent";
 
@@ -12,6 +13,7 @@ export default function RootLayout({children}: { children: React.ReactNode }) {
     return (
         <html lang="en">
             <head>
+                <script src='https://media.inyaw.com/css/APlayer/APlayer.min.js' />
                 <script src='https://media.inyaw.com/css/lv2d/live2dcubismcore.min.js' />
                 <script src='https://media.inyaw.com/css/lv2d/pixi.min.js' />
                 <script src='https://media.inyaw.com/css/lv2d/live2dv3.min.js' />

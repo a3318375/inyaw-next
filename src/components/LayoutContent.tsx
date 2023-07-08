@@ -4,7 +4,7 @@ import GlobalNav from "@/components/GlobalNav";
 import Footer from "@/components/Footer";
 import clsx from "clsx";
 import {useEffect, useState} from "react";
-import Hero from "@/components/Hero";
+import {Lv2d} from "@/components/Lv2d";
 
 export default function LayoutContent({children}: { children: React.ReactNode }) {
     const [nowScroll, setNowScroll] = useState(0)
@@ -15,12 +15,14 @@ export default function LayoutContent({children}: { children: React.ReactNode })
     const bindHandleScroll = () => {
         const scrollTopOj = document.getElementById('pageContent')
         const scrollTop = scrollTopOj ? scrollTopOj.scrollTop : 0
+        console.log(111, scrollTop, nowScroll)
         if (nowScroll > scrollTop) {
             setMenuShow(true)
         } else {
             setMenuShow(false)
         }
-        const myTop = scrollTopOj.scrollHeight
+        setNowScroll(scrollTop)
+        const myTop = scrollTopOj ? scrollTopOj.scrollHeight : 0
         if (scrollTop > myTop / 10) {
             setNavShow(false)
         } else {
@@ -45,12 +47,12 @@ export default function LayoutContent({children}: { children: React.ReactNode })
                 <GlobalNav menuShow={menuShow}/>
                 <div>
                     <div className="w-full min-h-screen"/>
-                    <div id="mainContent" className="lg:grid lg:grid-cols-12 lg:gap-4 px-4 py-8 bg-white bg-opacity-60">
-                        <div className="w-full lg:col-start-3 md:col-end-10 lg:pr-3">
+                    <div id="mainContent" className="lg:grid lg:grid-cols-12 lg:gap-4 px-4 py-8">
+                        <div className="w-full sm:col-start-4 sm:col-end-10 lg:col-start-5 lg:col-end-9">
                             {children}
                         </div>
                     </div>
-                    {/*<Lv2d />*/}
+                    <Lv2d />
                     <Footer />
                 </div>
             </div>

@@ -1,7 +1,7 @@
 export default function Footer() {
     return (
         <>
-            <footer className="footer px-10 py-4 bg-neutral bg-white bg-opacity-60">
+            <footer className="footer px-10 py-4 text-white">
                 <div className="items-center grid-flow-col">
                     <svg width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"
                          fillRule="evenodd" clipRule="evenodd" className="fill-current">

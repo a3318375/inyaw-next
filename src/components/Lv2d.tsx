@@ -17,11 +17,29 @@ export function Lv2d() {
             ],
         })
     }
+    const initAudio = () => {
+        // @ts-ignore
+        const ap = new APlayer({
+            container: document.getElementById('aplayer'),
+            listFolded: true,
+            audio: [ // 歌曲列表
+                {
+                    name: '星茶会',
+                    artist: '灰澈-星茶会',
+                    url: 'https://media.inyaw.com/icon/test_music.mp3',
+                    cover: 'http://imge.kugou.com/stdmusic/150/20200812/20200812134914113741.jpg',
+                    lrc: '',
+                    theme: '#baf',
+                },
+            ],
+        })
+    }
     useEffect(() => {
+        initAudio()
         initLv2d()
     }, []);
     return (
         <div id="L2dCanvas"
-             className="Canvas hidden md:block fixed opacity-100 pointer-events-none bottom-[-110px] right-[-250px] -z-999"/>
+             className="Canvas hidden md:block fixed opacity-100 pointer-events-none bottom-[-130px] right-[-250px] -z-999"/>
     );
 }
