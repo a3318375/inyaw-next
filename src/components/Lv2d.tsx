@@ -1,6 +1,7 @@
 "use client"
 
 import {useEffect} from "react";
+import Script from "next/script";
 
 export function Lv2d() {
     const initLv2d = () => {
@@ -39,7 +40,15 @@ export function Lv2d() {
         initLv2d()
     }, []);
     return (
-        <div id="L2dCanvas"
-             className="Canvas hidden md:block fixed opacity-100 pointer-events-none bottom-[-130px] right-[-250px] -z-999"/>
+        <>
+            <Script src='https://media.inyaw.com/css/APlayer/APlayer.min.js' strategy="beforeInteractive" />
+            <Script src='https://media.inyaw.com/css/lv2d/live2dcubismcore.min.js' strategy="beforeInteractive" />
+            <Script src='https://media.inyaw.com/css/lv2d/pixi.min.js' strategy="beforeInteractive" />
+            <Script src='https://media.inyaw.com/css/lv2d/live2dv3.min.js' strategy="beforeInteractive" />
+
+            <div id="L2dCanvas"
+                 className="Canvas hidden md:block fixed opacity-100 pointer-events-none bottom-[-130px] right-[-250px] -z-999"/>
+        </>
+
     );
 }

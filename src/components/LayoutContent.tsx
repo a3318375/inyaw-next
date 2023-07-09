@@ -15,7 +15,6 @@ export default function LayoutContent({children}: { children: React.ReactNode })
     const bindHandleScroll = () => {
         const scrollTopOj = document.getElementById('pageContent')
         const scrollTop = scrollTopOj ? scrollTopOj.scrollTop : 0
-        console.log(111, scrollTop, nowScroll)
         if (nowScroll > scrollTop) {
             setMenuShow(true)
         } else {
