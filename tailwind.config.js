@@ -7,6 +7,9 @@ module.exports = {
   ],
   theme: {
     extend: {
+      maxWidth: {
+        'content': '53rem',
+      },
       zIndex: {
         '-999': '-999',
         '999': '999',
@@ -19,6 +22,5 @@ module.exports = {
   },
   plugins: [
     require('@tailwindcss/typography'),
-    require('daisyui'),
   ],
 }

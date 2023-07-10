@@ -17,25 +17,25 @@
 .aplayer.aplayer-arrow .aplayer-icon-loop,
 .aplayer.aplayer-arrow .aplayer-icon-order,
 .aplayer.aplayer-mobile .aplayer-icon-volume-down {
-  @apply text-base-content
+  @apply text-blue-800 hover:text-orange-500
 }
 
 .aplayer .aplayer-info .aplayer-music .aplayer-title {
-  @apply text-sm text-base-content
+  @apply text-sm text-blue-800 hover:text-orange-500
 }
 
 .aplayer .aplayer-info .aplayer-music .aplayer-author {
-  @apply text-xs text-base-content
+  @apply text-xs text-blue-800 hover:text-orange-500
 }
 
 .aplayer .aplayer-info .aplayer-controller .aplayer-bar-wrap .aplayer-bar .aplayer-loaded {
-  @apply bg-base-content
+  @apply text-blue-800 hover:text-orange-500
 }
 
 .aplayer .aplayer-info .aplayer-controller .aplayer-time {
-  @apply text-base-content
+  @apply text-blue-800 hover:text-orange-500
 }
 
 .aplayer .aplayer-info .aplayer-controller .aplayer-time .aplayer-icon path {
-  @apply fill-base-content
+  @apply fill-blue-800
 }

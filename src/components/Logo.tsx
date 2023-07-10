@@ -1,6 +1,6 @@
 export default function Logo() {
     return (
-        <a className="btn btn-ghost normal-case text-xl group text-secondary-content">
+        <a className="btn btn-ghost normal-case text-xl group text-red-300">
             <ruby>
                 <span>yoyo</span>
                 <span>の</span>

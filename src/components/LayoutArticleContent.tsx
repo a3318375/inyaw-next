@@ -6,7 +6,7 @@ import clsx from "clsx";
 import {useEffect, useState} from "react";
 import {Lv2d} from "@/components/Lv2d";
 
-export default function LayoutContent({children}: { children: React.ReactNode }) {
+export default function LayoutArticleContent({children}: { children: React.ReactNode }) {
     const [nowScroll, setNowScroll] = useState(0)
     const [oldScroll, setOldScroll] = useState(0)
 
@@ -59,18 +59,13 @@ export default function LayoutContent({children}: { children: React.ReactNode })
         <div className="w-full h-screen grid overflow-hidden">
             <img
                 className={clsx(navShow ? 'fixed w-full h-full object-cover -z-999 bg-img-mobile-default md:bg-img-default bg-no-repeat bg-cover' : 'fixed filter blur-sm w-full h-full object-cover -z-999 bg-img-mobile-default md:bg-img-default bg-no-repeat bg-cover')}/>
-            <div id="pageContent" className="overflow-y-auto">
+            <div id="pageContent" className="overflow-y-auto relative">
                 <GlobalNav menuShow={menuShow}/>
-                <div>
-                    <div className="w-full min-h-screen hidden md:block"/>
-                    <div className="w-full flex items-center justify-center">
-                        <div id="mainContent" className="mx-0 md:p-8 md:max-w-content">
-                            {children}
-                        </div>
-                    </div>
-                    <Lv2d/>
-                    <Footer layoutType={true} />
+                <div className="w-full">
+                    {children}
                 </div>
+                <Lv2d/>
+                <Footer layoutType={false} />
             </div>
         </div>
     )

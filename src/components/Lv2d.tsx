@@ -46,7 +46,7 @@ export function Lv2d() {
             <Script src='https://media.inyaw.com/css/lv2d/pixi.min.js' strategy="beforeInteractive" />
             <Script src='https://media.inyaw.com/css/lv2d/live2dv3.min.js' strategy="beforeInteractive" />
 
-            <div id="L2dCanvas"
+            <div id="L2dCanvas1"
                  className="Canvas hidden md:block fixed opacity-100 pointer-events-none bottom-[-130px] right-[-250px] -z-999"/>
         </>
 
