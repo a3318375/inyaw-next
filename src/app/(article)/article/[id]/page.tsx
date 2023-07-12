@@ -32,7 +32,7 @@ export default async function Article({params: {id}}: { params: { id: number } }
             <meta name='description' content={blogInfo.summary}/>
             <div className="w-full">
                 {/*<div className="bg-white bg-opacity-80">*/}
-                <div className="relative w-full h-96 bg-no-repeat bg-cover"
+                <div className="relative w-full h-25rem bg-no-repeat bg-cover bg-center"
                      style={{ backgroundImage: `url(${blogInfo.cover})` }}>
                     <div className="absolute bottom-16 text-center w-full">
                         <h1 className="text-white text-4xl pb-2">{blogInfo.title}</h1>
