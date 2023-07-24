@@ -5,7 +5,7 @@ export function Lv2d() {
     return (
         <>
             <Script src='https://media.inyaw.com/css/APlayer/APlayer.min.js'
-                    onReady={() => {
+                    onLoad={() => {
                         const initAudio = () => {
                             // @ts-ignore
                             const ap = new APlayer({
@@ -26,7 +26,7 @@ export function Lv2d() {
                         initAudio();
                     }}/>
             <Script src='https://media.inyaw.com/css/lv2d/lv2d.js'
-                    onReady={() => {
+                    onLoad={() => {
                         const initLv2d = () => {
                             // @ts-ignore
                             new l2dViewer({
