@@ -9,7 +9,7 @@ export const metadata: Metadata = {
     icons: "https://media.inyaw.com/icon/favicon.ico"
 }
 
-export default function RootLayout({children}: { children: React.ReactNode }) {
+export default function ArticleLayout({children}: { children: React.ReactNode }) {
     return (
         <html lang="en">
             <body>
