@@ -4,8 +4,8 @@ import type {PostsPage} from '@/api/service'
 import {ClockIcon, FireIcon, ChatBubbleBottomCenterTextIcon, WalletIcon} from '@heroicons/react/24/outline'
 
 
-async function findBlogList(page: number) {
-    const res = await fetch('https://admin.inyaw.com/api/blog/web/page?page=' + page)
+async function findBlogList(slug: number) {
+    const res = await fetch('https://admin.inyaw.com/api/blog/web/page?page=' + slug)
     const post = await res.json()
     if (post && post.code && post.code === 1) {
         return post.data;
@@ -14,8 +14,8 @@ async function findBlogList(page: number) {
     }
 }
 
-export default async function Page({params: {page}}: { params: { page: number } }) {
-    const posts: PostsPage = await findBlogList(page)
+export default async function Page({params: {slug}}: { params: { slug: number } }) {
+    const posts: PostsPage = await findBlogList(slug)
     return (
         <div className="w-full grid gap-8">
             {(posts && posts.content && posts.content.length > 0) && posts.content.map((item, index) => {
