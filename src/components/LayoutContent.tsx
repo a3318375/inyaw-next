@@ -24,16 +24,24 @@ export default function LayoutContent({children}: { children: React.ReactNode })
 
         const scrollTopOj = document.getElementById('pageContent')
         const scrollTop = scrollTopOj ? scrollTopOj.scrollTop : 0
-        setMenuShow(false)
+        if (menuShow) {
+            setMenuShow(false)
+        }
         setNowScroll(scrollTop)
         console.log('滚动中')
         const myTop = scrollTopOj ? scrollTopOj.scrollHeight : 0
         if (scrollTop > myTop / 10) {
-            setNavShow(false)
+            if (navShow) {
+                setNavShow(false)
+            }
         } else {
-            setNavShow(true)
+            if (!navShow) {
+                setNavShow(true)
+            }
         }
-        setTick(false)
+        if (tick) {
+            setTick(false)
+        }
     }
 
     function toStop() {
@@ -42,7 +50,9 @@ export default function LayoutContent({children}: { children: React.ReactNode })
         setOldScroll(scrollTop)
         if (oldScroll == nowScroll) {
             console.log('滚动结束了')
-            setMenuShow(true)
+            if (!menuShow) {
+                setMenuShow(true)
+            }
         }
     }
 
@@ -54,7 +64,7 @@ export default function LayoutContent({children}: { children: React.ReactNode })
     }
     useEffect(() => {
         document.getElementById('pageContent')?.addEventListener('scroll', onScroll, false);
-    }, [nowScroll]);
+    }, []);
     return (
         <div className="w-full h-screen grid overflow-hidden">
             <img
@@ -69,7 +79,7 @@ export default function LayoutContent({children}: { children: React.ReactNode })
                         </div>
                     </div>
                     <Lv2d/>
-                    <Footer layoutType={true} />
+                    <Footer layoutType={true}/>
                 </div>
             </div>
         </div>

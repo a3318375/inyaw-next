@@ -14,7 +14,7 @@ export default function Footer({layoutType}: { layoutType: boolean }) {
                 </div>
                 <div>
                     <a href="https://www.upyun.com/?utm_source=lianmeng&utm_medium=referral">本网站由 <img
-                        src="https://media.inyaw.com/icon/%E5%8F%88%E6%8B%8D%E4%BA%91_logo6.png"
+                        src="https://media.inyaw.com/icon/%E5%8F%88%E6%8B%8D%E4%BA%91_logo5.png"
                         className="inline h-6" alt="又拍"/> 提供CDN加速/云存储服务</a>
                 </div>
             </div>
