@@ -1,37 +1,62 @@
-# 1. 构建基础镜像
-FROM alpine:latest AS base
-#纯净版镜像
+#syntax=docker/dockerfile:1.4
+FROM node:18-alpine AS base
 
-ENV NODE_ENV=production \
-  APP_PATH=/app
+# Install dependencies only when needed
+FROM base AS deps
+# Check https://github.com/nodejs/docker-node/tree/b4117f9333da4138b03a546ec926ef50a31506c3#nodealpine to understand why libc6-compat might be needed.
+RUN apk add --no-cache libc6-compat
+WORKDIR /app
 
-WORKDIR $APP_PATH
+# Install dependencies based on the preferred package manager
+COPY  package.json yarn.lock* package-lock.json* pnpm-lock.yaml* ./
+RUN \
+  if [ -f yarn.lock ]; then yarn --frozen-lockfile; \
+  elif [ -f package-lock.json ]; then npm ci; \
+  elif [ -f pnpm-lock.yaml ]; then yarn global add pnpm && pnpm i --frozen-lockfile; \
+  else echo "Lockfile not found." && exit 1; \
+  fi
 
-# 使用国内镜像，加速下面 apk add下载安装alpine不稳定情况
-# RUN sed -i 's/dl-cdn.alpinelinux.org/mirrors.aliyun.com/g' /etc/apk/repositories
 
-# 使用apk命令安装 nodejs 和 yarn
-# RUN apk add --no-cache --update nodejs=16.20.0-r0 yarn=1.22.17-r0
-RUN apk add --no-cache nodejs npm
+# Rebuild the source code only when needed
+FROM base AS builder
+WORKDIR /app
+COPY --from=deps  /app/node_modules ./node_modules
+COPY   . .
 
-# 2. 基于基础镜像安装项目依赖
-FROM base AS install
+# Next.js collects completely anonymous telemetry data about general usage.
+# Learn more here: https://nextjs.org/telemetry
+# Uncomment the following line in case you want to disable telemetry during the build.
+# ENV NEXT_TELEMETRY_DISABLED 1
 
-COPY package.json package-lock.json ./
+RUN yarn build
 
-RUN npm install
+# If using npm comment out above and use below instead
+# RUN npm run build
 
-# 3. 基于基础镜像进行最终构建
-FROM base
+# Production image, copy all the files and run next
+FROM base AS runner
+WORKDIR /app
 
-# 拷贝 上面生成的 node_modules 文件夹复制到最终的工作目录下
-COPY --from=install $APP_PATH/node_modules ./node_modules
+ENV NODE_ENV production
+# Uncomment the following line in case you want to disable telemetry during runtime.
+# ENV NEXT_TELEMETRY_DISABLED 1
 
-# 拷贝当前目录下的所有文件(除了.dockerignore里排除的)，都拷贝到工作目录下
-COPY . .
+RUN \
+  addgroup --system --gid 1001 nodejs; \
+  adduser --system --uid 1001 nextjs
 
-RUN npm run build
+COPY --from=builder  /app/public ./public
+
+# Automatically leverage output traces to reduce image size
+# https://nextjs.org/docs/advanced-features/output-file-tracing
+COPY --from=builder  --chown=1001:1001 /app/.next/standalone ./
+COPY --from=builder  --chown=1001:1001 /app/.next/static ./.next/static
+
+USER nextjs
 
 EXPOSE 3000
 
-CMD ["npm", "start"]
+ENV PORT 3000
+ENV HOSTNAME localhost
+
+CMD ["node", "server.js"]
