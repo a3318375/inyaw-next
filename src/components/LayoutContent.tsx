@@ -28,20 +28,14 @@ export default function LayoutContent({children}: { children: React.ReactNode })
             setMenuShow(false)
         }
         setNowScroll(scrollTop)
-        console.log('滚动中')
+        //console.log('滚动中')
         const myTop = scrollTopOj ? scrollTopOj.scrollHeight : 0
         if (scrollTop > myTop / 10) {
-            if (navShow) {
-                setNavShow(false)
-            }
+            setNavShow(false)
         } else {
-            if (!navShow) {
-                setNavShow(true)
-            }
+            setNavShow(true)
         }
-        if (tick) {
-            setTick(false)
-        }
+        setTick(false)
     }
 
     function toStop() {
@@ -49,10 +43,8 @@ export default function LayoutContent({children}: { children: React.ReactNode })
         const scrollTop = scrollTopOj ? scrollTopOj.scrollTop : 0
         setOldScroll(scrollTop)
         if (oldScroll == nowScroll) {
-            console.log('滚动结束了')
-            if (!menuShow) {
-                setMenuShow(true)
-            }
+            //console.log('滚动结束了', menuShow)
+            setMenuShow(true)
         }
     }
 
@@ -66,7 +58,7 @@ export default function LayoutContent({children}: { children: React.ReactNode })
         document.getElementById('pageContent')?.addEventListener('scroll', onScroll, false);
     }, []);
     return (
-        <div className="w-full h-screen grid overflow-hidden">
+        <div className="w-full h-screen grid overflow-hidden dark:bg-slate-800">
             <img
                 className={clsx(navShow ? 'fixed w-full h-full object-cover -z-999 bg-img-mobile-default md:bg-img-default bg-no-repeat bg-cover' : 'fixed filter blur-sm w-full h-full object-cover -z-999 bg-img-mobile-default md:bg-img-default bg-no-repeat bg-cover')}/>
             <div id="pageContent" className="overflow-y-auto">

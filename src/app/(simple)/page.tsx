@@ -41,10 +41,10 @@ export default async function Home() {
                                    className="block mt-3 text-lg leading-tight font-medium text-black">{item.title}</a>
                                 <div className="w-full text-xs py-2">
                                     <FireIcon
-                                        className="text-sm ml-1 inline-block bg-base-500 w-4 h-4 text-warning"/><span> {item.views} 热度</span>
+                                        className="text-sm ml-1 inline-block text-rose-500 w-4 h-4 text-warning"/><span> {item.views} 热度</span>
                                     <ChatBubbleBottomCenterTextIcon
-                                        className="text-sm ml-1 inline-block bg-base-500 w-4 h-4 text-warning"/><span> {item.comments} 条评论</span>
-                                    <WalletIcon className="text-sm ml-1 inline-block bg-base-500 w-4 h-4 text-warning"/><span> {item.type?.name}</span>
+                                        className="text-sm ml-1 inline-block text-rose-500 w-4 h-4 text-warning"/><span> {item.comments} 条评论</span>
+                                    <WalletIcon className="text-sm ml-1 inline-block text-rose-500 w-4 h-4 text-warning"/><span> {item.type?.name}</span>
                                 </div>
                                 <Link href={'/article/' + item.id}>
                                     <p>{item.summary}</p>

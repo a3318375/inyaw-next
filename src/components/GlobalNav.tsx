@@ -5,6 +5,7 @@ import {Disclosure, Menu, Transition} from '@headlessui/react'
 import {Bars3Icon, BellIcon, XMarkIcon} from '@heroicons/react/24/outline'
 import Logo from "@/components/Logo";
 import Search from "@/components/Search";
+import Theme from "@/components/Theme";
 
 export default function GlobalNav({menuShow}: { menuShow: boolean }) {
     return (
@@ -21,25 +22,25 @@ export default function GlobalNav({menuShow}: { menuShow: boolean }) {
                                 <div className="hidden sm:ml-6 sm:flex sm:space-x-8">
                                     <Link
                                         href="/"
-                                        className="inline-flex items-center border-b-2 border-indigo-500 px-1 pt-1 text-sm font-semibold text-blue-800 hover:text-orange-500"
+                                        className="inline-flex items-center border-b-2 border-indigo-500 px-1 pt-1 text-sm font-semibold hover:text-orange-500"
                                     >
                                         首页
                                     </Link>
                                     <Link
                                         href="/"
-                                        className="inline-flex items-center border-b-2 border-transparent px-1 pt-1 text-sm font-semibold text-blue-800 hover:text-orange-500 hover:border-gray-300"
+                                        className="inline-flex items-center border-b-2 border-transparent px-1 pt-1 text-sm font-semibold  hover:text-orange-500 hover:border-gray-300"
                                     >
                                         分类
                                     </Link>
                                     <Link
                                         href="#"
-                                        className="inline-flex items-center border-b-2 border-transparent px-1 pt-1 text-sm font-semibold text-blue-800 hover:text-orange-500 hover:border-gray-300"
+                                        className="inline-flex items-center border-b-2 border-transparent px-1 pt-1 text-sm font-semibold  hover:text-orange-500 hover:border-gray-300"
                                     >
                                         归档
                                     </Link>
                                     <Link
                                         href="#"
-                                        className="inline-flex items-center border-b-2 border-transparent px-1 pt-1 text-sm font-semibold text-blue-800 hover:text-orange-500 hover:border-gray-300"
+                                        className="inline-flex items-center border-b-2 border-transparent px-1 pt-1 text-sm font-semibold  hover:text-orange-500 hover:border-gray-300"
                                     >
                                         关于我
                                     </Link>
@@ -55,6 +56,7 @@ export default function GlobalNav({menuShow}: { menuShow: boolean }) {
                                 {/*</button>*/}
                                 <div id="aplayer" className="hidden md:block"/>
                                 <Search />
+                                <Theme />
 
                                 {/* Profile dropdown */}
                                 <Menu as="div" className="relative ml-3">

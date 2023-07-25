@@ -36,7 +36,7 @@ export default function Search() {
         <>
             <button
                 type="button"
-                className="rounded-full p-1 text-blue-800 hover:text-orange-500 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+                className="rounded-full p-1 hover:text-orange-500 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
                 onClick={() => {
                     setOpen(true)
                 }}

@@ -1,7 +1,6 @@
 import '@/assets/css/globals.css'
 import '@/assets/css/APlayer.min.css'
 import {Metadata} from "next";
-import Script from 'next/script'
 import LayoutContent from "@/components/LayoutContent";
 
 export const metadata: Metadata = {

@@ -28,20 +28,14 @@ export default function LayoutArticleContent({children}: { children: React.React
             setMenuShow(false)
         }
         setNowScroll(scrollTop)
-        console.log('滚动中')
+        //console.log('滚动中')
         const myTop = scrollTopOj ? scrollTopOj.scrollHeight : 0
         if (scrollTop > myTop / 10) {
-            if (navShow) {
-                setNavShow(false)
-            }
+            setNavShow(false)
         } else {
-            if (!navShow) {
-                setNavShow(true)
-            }
+            setNavShow(true)
         }
-        if (tick) {
-            setTick(false)
-        }
+        setTick(false)
     }
 
     function toStop() {
@@ -49,10 +43,8 @@ export default function LayoutArticleContent({children}: { children: React.React
         const scrollTop = scrollTopOj ? scrollTopOj.scrollTop : 0
         setOldScroll(scrollTop)
         if (oldScroll == nowScroll) {
-            console.log('滚动结束了')
-            if (!menuShow) {
-                setMenuShow(true)
-            }
+            //console.log('滚动结束了', menuShow)
+            setMenuShow(true)
         }
     }
 
