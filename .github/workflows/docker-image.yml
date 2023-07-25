@@ -19,7 +19,6 @@ jobs:
           image: inyaa/inyaw-next
           tags: latest
           registry: docker.io
-          multiPlatform: true
           dockerfile: Dockerfile
           username: ${{ secrets.DOCKER_HUB_USERNAME }}
           password: ${{ secrets.DOCKER_HUB_PASSWORD }}
