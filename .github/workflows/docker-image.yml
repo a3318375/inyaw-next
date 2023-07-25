@@ -13,6 +13,8 @@ jobs:
     steps:
       - uses: actions/checkout@v3
         name: 拉取代码
+      - name: 配置环境变量
+        run: export DOCKER_BUILDKIT=1
       - uses: mr-smithers-excellent/docker-build-push@v5
         name: 登录并编译dockerfile
         with:
