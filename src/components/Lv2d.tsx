@@ -5,6 +5,7 @@ export function Lv2d() {
     return (
         <>
             <Script src='https://media.inyaw.com/css/APlayer/APlayer.min.js'
+                    strategy="lazyOnload"
                     onLoad={() => {
                         const initAudio = () => {
                             // @ts-ignore
@@ -26,6 +27,7 @@ export function Lv2d() {
                         initAudio();
                     }}/>
             <Script src='https://media.inyaw.com/css/lv2d/lv2d.js'
+                    strategy="lazyOnload"
                     onLoad={() => {
                         const initLv2d = () => {
                             // @ts-ignore
