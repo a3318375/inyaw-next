@@ -21,7 +21,7 @@ export default function Theme() {
                     >
                         <SunIcon
                             className={`${open ? '' : 'text-opacity-70'}
-                  ml-2 h-5 w-5 text-orange-300 transition duration-150 ease-in-out group-hover:text-opacity-80`}
+                  ml-2 h-5 w-5 transition duration-150 ease-in-out group-hover:text-opacity-80`}
                             aria-hidden="true"
                         />
                     </Popover.Button>
@@ -37,7 +37,7 @@ export default function Theme() {
                         <Popover.Panel
                             className="absolute z-10 mt-3 max-w-sm -translate-x-1/2 transform px-4 sm:px-0 lg:max-w-3xl">
                             <div className="overflow-hidden rounded-lg shadow-lg ring-1 ring-black ring-opacity-5">
-                                <div className="relative grid gap-8 bg-white p-7 lg:grid-cols-2">
+                                <div className="relative grid gap-8 bg-white p-7">
                                     <a
                                         href="javaScript:void(0);"
                                         onClick={() => updateTheme('light')}

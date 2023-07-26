@@ -12,9 +12,9 @@ export type BlogArticleType = {
 }
 
 export type BlogInfoType = {
-    id?: number;
-    title?: string;
-    cover?: string;
+    id: number;
+    title: string;
+    cover: string;
     comments?: number;
     status?: boolean;
     summary?: string;
@@ -26,6 +26,8 @@ export type BlogInfoType = {
     isHot?: boolean;
     type?: InyaaBlogType;
     article: InyaaBlogArticle;
+    previousBlog?: BlogInfoType;
+    nextBlog?: BlogInfoType;
 }
 
 type InyaaBlogType = {

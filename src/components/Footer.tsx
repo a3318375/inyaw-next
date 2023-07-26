@@ -3,7 +3,7 @@ import clsx from "clsx";
 export default function Footer({layoutType}: { layoutType: boolean }) {
     return (
         <footer
-            className={clsx('lg:text-left text-center', layoutType ? 'text-white' : 'bg-white bg-opacity-80 dark:bg-neutral-700 text-neutral-700 dark:text-neutral-200')}>
+            className={clsx('lg:text-left text-center', layoutType ? 'text-white' : 'bg-white bg-opacity-80 dark:bg-slate-900 text-neutral-700 dark:text-neutral-200')}>
             <div className="p-4 text-center">
                 <div>
                     © 2023 Copyright:

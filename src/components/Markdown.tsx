@@ -11,7 +11,7 @@ export default function Markdown({context}: { context: string }) {
         .render(context)
     return (
         <>
-            <article className="prose max-w-none p-4" dangerouslySetInnerHTML={{__html: html}}/>
+            <article className="prose max-w-none p-4 dark:prose-invert" dangerouslySetInnerHTML={{__html: html}}/>
         </>
     );
 }

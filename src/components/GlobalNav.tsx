@@ -10,7 +10,7 @@ import Theme from "@/components/Theme";
 export default function GlobalNav({menuShow}: { menuShow: boolean }) {
     return (
         <Disclosure as="nav"
-                    className={clsx('fixed w-full bg-white bg-opacity-60 shadow z-999 transition duration-700', menuShow ? ' translate-y-0' : ' -translate-y-16')}>
+                    className={clsx('fixed w-full bg-white bg-opacity-60 dark:bg-slate-900 shadow z-999 transition duration-700', menuShow ? ' translate-y-0' : ' -translate-y-16')}>
             {({open}) => (
                 <>
                     <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -19,7 +19,7 @@ export default function GlobalNav({menuShow}: { menuShow: boolean }) {
                                 <div className="flex flex-shrink-0 items-center">
                                     <Logo/>
                                 </div>
-                                <div className="hidden sm:ml-6 sm:flex sm:space-x-8">
+                                <div className="hidden sm:ml-6 sm:flex sm:space-x-8 dark:text-white">
                                     <Link
                                         href="/"
                                         className="inline-flex items-center border-b-2 border-indigo-500 px-1 pt-1 text-sm font-semibold hover:text-orange-500"

@@ -21,7 +21,7 @@ export default async function Home() {
             {(posts && posts.content && posts.content.length > 0) && posts.content.map((item, index) => {
                 return (
                     <div key={index}
-                         className="w-full mx-auto bg-white bg-opacity-60 rounded-xl shadow-md overflow-hidden">
+                         className="w-full mx-auto bg-white bg-opacity-80 dark:bg-slate-900 rounded-xl shadow-md overflow-hidden">
                         <div className="md:flex">
                             <div
                                 className={clsx('md:shrink-0 md:w-1/2', index % 2 === 0 ? 'md:order-2' : 'md:order-4')}>
@@ -32,14 +32,14 @@ export default async function Home() {
                                         alt="Modern building architecture"/>
                                 </Link>
                             </div>
-                            <div className={clsx('p-8', index % 2 === 0 ? 'md:order-4' : 'md:order-2')}>
+                            <div className={clsx('p-8 md:w-1/2', index % 2 === 0 ? 'md:order-4' : 'md:order-2')}>
                                 <div className="w-max text-sm bg-rose-100 text-red-400 font-semibold rounded-lg p-1">
                                     <ClockIcon
                                         className="text-sm inline-block bg-base-500 w-4 h-4"/><span> 发表于 {item.createTime}</span>
                                 </div>
                                 <a href={'/article/' + item.id}
-                                   className="block mt-3 text-lg leading-tight font-medium text-black">{item.title}</a>
-                                <div className="w-full text-xs py-2">
+                                   className="block mt-3 text-lg leading-tight font-medium text-black dark:text-white">{item.title}</a>
+                                <div className="w-full text-xs py-2 dark:text-white">
                                     <FireIcon
                                         className="text-sm ml-1 inline-block text-rose-500 w-4 h-4 text-warning"/><span> {item.views} 热度</span>
                                     <ChatBubbleBottomCenterTextIcon
@@ -47,7 +47,7 @@ export default async function Home() {
                                     <WalletIcon className="text-sm ml-1 inline-block text-rose-500 w-4 h-4 text-warning"/><span> {item.type?.name}</span>
                                 </div>
                                 <Link href={'/article/' + item.id}>
-                                    <p>{item.summary}</p>
+                                    <p className="dark:text-white">{item.summary}</p>
                                 </Link>
                             </div>
                         </div>
