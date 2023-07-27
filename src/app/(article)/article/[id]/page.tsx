@@ -45,8 +45,11 @@ export default async function Article({params: {id}}: { params: { id: number } }
                     </div>
                 </div>
             </div>
-            <div className="bg-white bg-opacity-80 dark:bg-slate-900">
-                <Markdown context={blogInfo.article.context}/>
+            <div className="bg-white bg-opacity-90 dark:bg-slate-900 flex flex-none items-center justify-center">
+                <div className="md:max-w-content">
+                    <Markdown context={blogInfo.article.context}/>
+                    <Recommend blogInfo={blogInfo}/>
+                </div>
             </div>
         </>
     )
