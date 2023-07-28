@@ -40,9 +40,10 @@ type InyaaBlogType = {
     label?: string;
 }
 
-type InyaaBlogArticle = {
+export type InyaaBlogArticle = {
     id: number;
     context: string;
+    topHtml?: any;
 }
 
 export type PostsPage = {

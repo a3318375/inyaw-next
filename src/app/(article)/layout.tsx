@@ -1,4 +1,5 @@
 import '@/assets/css/globals.css'
+import '@/assets/css/github.css'
 import '@/assets/css/APlayer.min.css'
 import {Metadata} from "next";
 import LayoutArticleContent from "@/components/LayoutArticleContent";

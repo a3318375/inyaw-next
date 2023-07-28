@@ -54,8 +54,12 @@ export default function LayoutArticleContent({children}: { children: React.React
             setTick(true)
         }
     }
+    function toCopy(e) {
+        navigator.clipboard.writeText(e.firstElementChild.innerHTML);
+    }
     useEffect(() => {
         document.getElementById('pageContent')?.addEventListener('scroll', onScroll, false);
+        window.toCopy = toCopy
     }, []);
     return (
         <div className="w-full h-screen grid overflow-hidden">

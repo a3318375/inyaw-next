@@ -22,6 +22,29 @@ module.exports = {
         'img-default': "url(https://media.inyaw.com/cover/7037ade43b1e484eac903a111b7ea709.jpg)",
         'img-mobile-default': "url(https://media.inyaw.com/cover/14db2cf6e4b441368243b23722d212c9.png)",
       },
+      typography: {
+        DEFAULT: {
+          css: {
+            code: {
+              background: '#ffe066',
+              color: '#ff6663',
+              paddingTop: 0,
+              paddingRight: '5px',
+              paddingBottom: '1px',
+              paddingLeft: '5px',
+              fontFamily: 'Noto Sans SC',
+              textShadow: 'none',
+              borderRadius: '5px',
+              '&::before': {
+                content: 'none!important',
+              },
+              '&::after': {
+                content: 'none!important',
+              },
+            },
+          },
+        },
+      },
     },
   },
   plugins: [
