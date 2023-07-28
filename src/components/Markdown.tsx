@@ -1,8 +1,7 @@
 "use client"
 
 import markdownItAnchor from "markdown-it-anchor"
-import highlightjs from 'markdown-it-highlightjs'
-import markdownIt from "markdown-it"
+import MarkdownIt from 'markdown-it';
 import hljs from "highlight.js"
 import ArticleToc from "@/components/ArticleToc";
 import markdownItToc from "markdown-it-toc-done-right"
@@ -11,7 +10,7 @@ import Recommend from "@/components/Recommend";
 
 export default function Markdown({blogInfo}: { blogInfo: BlogInfoType }) {
     let toc = ''
-    const html = markdownIt({
+    const html = MarkdownIt({
         html: true,
         xhtmlOut: true,
         breaks: false,
@@ -42,7 +41,7 @@ export default function Markdown({blogInfo}: { blogInfo: BlogInfoType }) {
                     console.log(error)
                 }
             }
-            return '<pre class="highlight-wrap"><code class="hjs">' + markdownit.utils.escapeHtml(str) + '</code>' +
+            return '<pre class="highlight-wrap"><code class="hjs">' + new MarkdownIt().utils.escapeHtml(str) + '</code>' +
                 '<button type="button" class="copy-code hidden sm:flex sm:items-center sm:justify-center relative w-9 h-9 rounded-lg focus:outline-none focus-visible:ring-2 focus-visible:ring-teal-500 text-gray-400 hover:text-gray-600 group ml-2.5" style="color:#06B6D4" onclick="navigator.clipboard.writeText(this.parentElement.parentElement.querySelector(\'pre\').innerText)" style="">' +
                 '<div class="hidden">' + str + '</div>' +
                 '       <svg aria-hidden="true" width="32" height="32" viewBox="0 0 32 32" fill="none" class="stroke-current transform group-hover:rotate-[-4deg] transition" style="copied ? \'--tw-rotate:-8deg;\' : \'\'" style="">' +
