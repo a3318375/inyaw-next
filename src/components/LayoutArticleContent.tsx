@@ -54,7 +54,7 @@ export default function LayoutArticleContent({children}: { children: React.React
             setTick(true)
         }
     }
-    function toCopy(e) {
+    function toCopy(e: Element) {
         navigator.clipboard.writeText(e.firstElementChild.innerHTML);
     }
     useEffect(() => {
