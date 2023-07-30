@@ -59,12 +59,12 @@ export default function LayoutArticleContent({children}: { children: React.React
             // Add 'active' class if observation target is inside viewport
             if (entry.isIntersecting) {
                 const tocLiList = document.querySelectorAll(".toc-list li");
-                Array.from(tocLiList,v => {
+                Array.from(tocLiList, v => {
                     const aLink = v.querySelector('.toc-link');
-                    if(aLink &&  aLink.getAttribute('href')?.replace('#','') === entry.target.id){
+                    if (aLink && aLink.getAttribute('href')?.replace('#', '') === entry.target.id) {
                         v.classList.add("is-active-link")
                         aLink.classList.add("is-active-link")
-                    }else{
+                    } else {
                         v.classList.remove("is-active-link")
                         aLink?.classList.remove("is-active-link")
                     }
@@ -76,8 +76,10 @@ export default function LayoutArticleContent({children}: { children: React.React
     useEffect(() => {
         document.getElementById('pageContent')?.addEventListener('scroll', onScroll, false);
         const tocList = document.querySelectorAll(".entry-content h1, h2, h3, h4, h5, h6");
-        // 监听滚动
-        Array.from(tocList).map(item => toc.observe(item));
+        if (tocList && tocList.length > 0) {
+            // 监听滚动
+            Array.from(tocList).map(item => toc.observe(item));
+        }
     }, []);
     return (
         <div className="w-full h-screen grid overflow-hidden">
@@ -89,7 +91,7 @@ export default function LayoutArticleContent({children}: { children: React.React
                     {children}
                 </div>
                 <Lv2d/>
-                <Footer layoutType={false} />
+                <Footer layoutType={false}/>
             </div>
         </div>
     )

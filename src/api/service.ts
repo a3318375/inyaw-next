@@ -3,7 +3,6 @@ export type ImageType = {
 }
 
 export type BlogArchiveType = {
-    image?: string
     blogInfo?: BlogInfoType[]
 }
 
@@ -28,8 +27,12 @@ export type BlogInfoType = {
     article: InyaaBlogArticle;
     previousBlog?: BlogInfoType;
     nextBlog?: BlogInfoType;
+    commentList?: InyawBlogComment[]
 }
 
+type InyawBlogComment = {
+
+}
 type InyaaBlogType = {
     id?: number;
     name?: string;

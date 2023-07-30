@@ -33,13 +33,13 @@ export default function GlobalNav({menuShow}: { menuShow: boolean }) {
                                         分类
                                     </Link>
                                     <Link
-                                        href="#"
+                                        href="/archive"
                                         className="inline-flex items-center border-b-2 border-transparent px-1 pt-1 text-sm font-semibold  hover:text-orange-500 hover:border-gray-300"
                                     >
                                         归档
                                     </Link>
                                     <Link
-                                        href="#"
+                                        href="/me"
                                         className="inline-flex items-center border-b-2 border-transparent px-1 pt-1 text-sm font-semibold  hover:text-orange-500 hover:border-gray-300"
                                     >
                                         关于我
