@@ -241,8 +241,46 @@ td.hljs-ln-numbers {
 b,strong,dt,.is-active-link,.hljs-strong {
     font-weight: 700;
 }
+.toc-container {
+    z-index: 98;
+    background-color: rgba(255, 255, 255, 0);
+    right: calc((100% - 1250px)/ 2);
+    position: absolute;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+.toc {
+    position: sticky;
+    top: 12%;
+    box-shadow: 0 1px 30px -4px var(--friend-link-shadow);
+    background: rgba(255, 255, 255, 0.5);
+    padding: 12px 12px;
+    overflow-y: auto;
+    border-radius: 10px;
+    border: 1.5px solid #FFFFFF;
+    -webkit-transition: all .8s;
+    transition: all .8s;
+}
+
+.toc:hover {
+    box-shadow: 0 1px 20px 10px #e8e8e8;
+    background: rgba(255, 255, 255, 0.8);
+    -webkit-transition: all .8s;
+    transition: all .8s;
+}
+
+.toc-list {
+    margin: 0;
+    padding-left: 16px;
+}
+a.toc-link {
+    color: currentColor;
+    height: 100%;
+    font-size: 16px;
+    text-decoration: none;
+}
 .toc-link:before {
-    background-color: #9e0101;
+    background-color: #ffffff;
     content: ' ';
     display: inline-block;
     height: inherit;
@@ -251,6 +289,14 @@ b,strong,dt,.is-active-link,.hljs-strong {
     position: absolute;
     width: 2px
 }
+.toc>.toc-list {
+    overflow: hidden;
+    position: relative;
+}
+#archives li,
+.toc>.toc-list li {
+    list-style: none;
+}
 .is-active-link:before {
-    background-color: var(--theme-skin,#505050);
+    background-color: #505050;
 }

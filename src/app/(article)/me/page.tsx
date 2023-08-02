@@ -1,3 +1,5 @@
+import GitalkComponent from "gitalk/dist/gitalk-component";
+
 async function getImage() {
     const res = await fetch('https://admin.inyaw.com/api/file/image?type=0')
     const post = await res.json()
@@ -32,6 +34,16 @@ export default async function Me() {
                     <div className="md:max-w-content mx-auto h-[65vh]">
                         <p>一个臭写java的，翻新过很多版本了，从微服务，到wordpress，又回到java</p>
                         <p>目前版本是react + nextjs</p>
+                        <GitalkComponent options={{
+                            clientID: 'c4ba4fe5dc710c1a56e0', // clientID
+                            clientSecret: '1f7f2aa8ee8a04d59cd41cf0b5b65777a06bae20', // clientSecret
+                            repo: 'inyaw-talk', // 评论仓库名
+                            owner: 'a3318375',
+                            admin: ['a3318375'], // 管理人
+                            id: 114514, // 返回当前 URL 的路径部分作为id
+                            language: 'zh-CN', // 语言
+                            distractionFreeMode: false  // 无干扰模式
+                        }}/>
                     </div>
                 </div>
             </div>

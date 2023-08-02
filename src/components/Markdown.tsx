@@ -3,9 +3,9 @@
 import markdownItAnchor from "markdown-it-anchor"
 import MarkdownIt from 'markdown-it';
 import hljs from "highlight.js"
-import ArticleToc from "@/components/ArticleToc";
 import markdownItToc from "markdown-it-toc-done-right"
 import {BlogInfoType} from "@/api/service";
+import GitalkComponent from "gitalk/dist/gitalk-component";
 import Recommend from "@/components/Recommend";
 
 export default function Markdown({blogInfo}: { blogInfo: BlogInfoType }) {
@@ -76,12 +76,19 @@ export default function Markdown({blogInfo}: { blogInfo: BlogInfoType }) {
                 <div className="prose max-w-none p-4 dark:prose-invert entry-content"
                      dangerouslySetInnerHTML={{__html: html}}/>
                 <Recommend blogInfo={blogInfo}/>
+                <GitalkComponent options={{
+                    clientID: 'c4ba4fe5dc710c1a56e0', // clientID
+                    clientSecret: '1f7f2aa8ee8a04d59cd41cf0b5b65777a06bae20', // clientSecret
+                    repo: 'inyaw-talk', // 评论仓库名
+                    owner: 'a3318375',
+                    admin: ['a3318375'], // 管理人
+                    id: blogInfo.id, // 返回当前 URL 的路径部分作为id
+                    language: 'zh-CN', // 语言
+                    distractionFreeMode: false  // 无干扰模式
+                }}/>
             </div>
-            <div className="hidden md:block h-full absolute z-98 right-32">
-                <div className="self-start sticky top-10">
-                    <ArticleToc toc={toc}/>
-                </div>
-            </div>
+            <div className="h-[89%] toc-container" dangerouslySetInnerHTML={{__html: toc}}/>
+
         </div>
     );
 }
