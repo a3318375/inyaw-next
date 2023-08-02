@@ -300,3 +300,6 @@ a.toc-link {
 .is-active-link:before {
     background-color: #505050;
 }
+pre > code {
+    display: grid;
+}

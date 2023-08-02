@@ -1,6 +1,11 @@
 import {BlogInfoType} from "@/api/service";
 import {Metadata} from "next";
-import Markdown from "@/components/Markdown";
+import rehypePrettyCode from "rehype-pretty-code";
+import toc, {HtmlElementNode} from "@jsdevtools/rehype-toc";
+import rehypeSlug from "rehype-slug";
+import Recommend from "@/components/Recommend";
+import Comment from "@/components/Comment";
+import {MDXRemote} from "next-mdx-remote/rsc";
 
 async function findBlogInfo(id: number) {
     const res = await fetch('https://admin.inyaw.com/api/blog/web/info?id=' + id)
@@ -46,7 +51,38 @@ export default async function Article({params: {id}}: { params: { id: number } }
                     </div>
                 </div>
                 <div className="bg-white bg-opacity-90 dark:bg-slate-900">
-                    <Markdown blogInfo={blogInfo}/>
+                    <div className="flex items-stretch relative">
+                        <div className="md:max-w-content mx-auto">
+                            <div className="prose max-w-none p-4 dark:prose-invert entry-content">
+                                <MDXRemote
+                                    source={blogInfo.article.context}
+                                    options={{
+                                        parseFrontmatter: true,
+                                        mdxOptions: {
+                                            rehypePlugins: [rehypeSlug, [rehypePrettyCode, {
+                                                theme: 'one-dark-pro',
+                                            }], [toc, {
+                                                cssClasses: {
+                                                    list: 'toc-list',
+                                                    listItem: 'toc-list-item'
+                                                },
+                                                customizeTOC: (tocAll: HtmlElementNode) => {
+                                                    return {
+                                                        type: "element",
+                                                        tagName: "div",
+                                                        properties: {className: "toc-container h-[89%] not-prose"},
+                                                        children: [tocAll],
+                                                    };
+                                                }
+                                            }]],
+                                        },
+                                    }}
+                                />
+                            </div>
+                            <Recommend blogInfo={blogInfo}/>
+                            <Comment id={blogInfo.id}/>
+                        </div>
+                    </div>
                 </div>
             </div>
         </>
