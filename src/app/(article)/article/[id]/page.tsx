@@ -60,7 +60,6 @@ export default async function Article({params: {id}}: { params: { id: number } }
                                         parseFrontmatter: true,
                                         mdxOptions: {
                                             rehypePlugins: [rehypeSlug, [rehypePrettyCode, {
-                                                theme: 'one-dark-pro',
                                             }], [toc, {
                                                 cssClasses: {
                                                     list: 'toc-list',
