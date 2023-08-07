@@ -31,7 +31,7 @@ export default async function Archive() {
             <div className="w-full">
                 {/*<div className="bg-white bg-opacity-80">*/}
                 <div className="relative w-full h-25rem bg-no-repeat bg-cover bg-center"
-                     style={{backgroundImage: `url(${cover})`}}>
+                     style={{backgroundImage: `url(${cover}-inyaa)`}}>
                     <div className="absolute w-full h-full bg-black bg-opacity-30">
                         <div className="absolute bottom-16 text-center w-full">
                             <h1 className="text-white text-4xl pb-2">归档</h1>

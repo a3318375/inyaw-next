@@ -35,7 +35,7 @@ export default function Recommend({blogInfo}: { blogInfo: BlogInfoType }) {
                           onMouseOver={() => hideBlur(0)}
                           className="w-full h-full inline-block">
                         <div className="relative w-full h-full relative bg-cover"
-                             style={{backgroundImage: `url(${blogInfo.previousBlog.cover})`}}>
+                             style={{backgroundImage: `url(${blogInfo.previousBlog.cover}-inyaa)`}}>
                             <div className={clsx('absolute top-0 left-0 w-full h-full  bg-black', lastBlur ? 'bg-opacity-40' : 'bg-opacity-20')}/>
                             <div className="absolute z-99 left-10 top-7">
                                 <span className="text-white z-99">上一篇</span>
@@ -52,7 +52,7 @@ export default function Recommend({blogInfo}: { blogInfo: BlogInfoType }) {
                           onMouseOver={() => hideBlur(1)}
                           className="w-full h-full inline-block">
                         <div className="relative w-full h-full relative bg-cover"
-                             style={{backgroundImage: `url(${blogInfo.nextBlog.cover})`}}>
+                             style={{backgroundImage: `url(${blogInfo.nextBlog.cover}-inyaa)`}}>
                             <div className={clsx('absolute top-0 left-0 w-full h-full  bg-black', nextBlur ? 'bg-opacity-40' : 'bg-opacity-20')}/>
                             <div className="absolute z-99 right-10 top-7 text-right">
                                 <span className="text-white z-99">下一篇</span>

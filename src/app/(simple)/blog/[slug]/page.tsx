@@ -28,7 +28,7 @@ export default async function Page({params: {slug}}: { params: { slug: number } 
                                 <Link href={'/article/' + item.id}>
                                     <img
                                         className="h-72 w-full object-cover transform transition duration-700 hover:scale-110"
-                                        src={item.cover + '!inyaa'}
+                                        src={item.cover + '-inyaa'}
                                         alt="Modern building architecture"/>
                                 </Link>
                             </div>
