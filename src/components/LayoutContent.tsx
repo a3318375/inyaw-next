@@ -5,8 +5,11 @@ import Footer from "@/components/Footer";
 import clsx from "clsx";
 import {useEffect, useState} from "react";
 import {Lv2d} from "@/components/Lv2d";
+import {ArrowUpIcon, Cog6ToothIcon, MoonIcon, SunIcon} from "@heroicons/react/20/solid";
 
 export default function LayoutContent({children}: { children: React.ReactNode }) {
+    const [buttonShow, setButtonShow] = useState(false)
+    const [theme, setTheme] = useState('light')
     const [nowScroll, setNowScroll] = useState(0)
     const [oldScroll, setOldScroll] = useState(0)
 
@@ -47,7 +50,25 @@ export default function LayoutContent({children}: { children: React.ReactNode })
             setMenuShow(true)
         }
     }
-
+    const updateTheme = () => {
+        if (theme === 'light') {
+            document.documentElement.classList.remove(localStorage.theme)
+            localStorage.theme = 'dark'
+            document.documentElement.classList.add('dark')
+            setTheme('dark')
+        } else {
+            document.documentElement.classList.remove(localStorage.theme)
+            localStorage.theme = 'light'
+            document.documentElement.classList.add('light')
+            setTheme('light')
+        }
+    }
+    const toTop = () => {
+        const scrollTopOj = document.getElementById('pageContent')
+        if(scrollTopOj && scrollTopOj.scrollTop){
+            scrollTopOj.scrollTop = 0;
+        }
+    }
     const onScroll = () => {
         if (!tick) {
             requestAnimationFrame(bindHandleScroll);
@@ -72,6 +93,21 @@ export default function LayoutContent({children}: { children: React.ReactNode })
                     </div>
                     <Lv2d/>
                     <Footer layoutType={true}/>
+                    <div className="fixed bottom-10 right-10 z-999">
+                        <button className={clsx('block mb-2 w-9 h-9 rounded-md bg-sky-400 text-center', buttonShow ? '' : 'hidden')}
+                                onClick={updateTheme}>
+                            {theme && theme === 'light'
+                                ? <SunIcon className="inline-block w-4 h-4 text-white"/>
+                                : <MoonIcon className="inline-block w-4 h-4 text-white"/>
+                            }
+                        </button>
+                        <button className="block mb-2 w-9 h-9 rounded-md bg-sky-400 text-center" onClick={()=>setButtonShow(!buttonShow)}>
+                            <Cog6ToothIcon className="inline-block w-4 h-4 text-white animate-spin"/>
+                        </button>
+                        <button className="block mb-2 w-9 h-9 rounded-md bg-sky-400 text-center" onClick={toTop}>
+                            <ArrowUpIcon className="inline-block w-4 h-4 text-white"/>
+                        </button>
+                    </div>
                 </div>
             </div>
         </div>

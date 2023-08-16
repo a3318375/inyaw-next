@@ -56,7 +56,6 @@ export default function GlobalNav({menuShow}: { menuShow: boolean }) {
                                 {/*</button>*/}
                                 <div id="aplayer" className="hidden md:block"/>
                                 <Search />
-                                <Theme />
 
                                 {/* Profile dropdown */}
                                 <Menu as="div" className="relative ml-3">

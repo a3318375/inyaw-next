@@ -6,9 +6,13 @@ import rehypeSlug from "rehype-slug";
 import Recommend from "@/components/Recommend";
 import Comment from "@/components/Comment";
 import {MDXRemote} from "next-mdx-remote/rsc";
+import Login from "@/components/Login";
+import Session from "@/components/SessionProvider";
+import CopyButton from "@/components/CopyButton";
+import Children from 'react-children-utilities'
 
 async function findBlogInfo(id: number) {
-    const res = await fetch('https://admin.inyaw.com/api/blog/web/info?id=' + id)
+    const res = await fetch('https://admin.inyaw.com/api/blog/web/info?id=' + id, {next: {tags: ['collection']}})
     const post = await res.json()
     if (post && post.code && post.code === 1) {
         return post.data;
@@ -29,6 +33,15 @@ export async function generateMetadata({params: {id}}: { params: { id: number } 
 
 export default async function Article({params: {id}}: { params: { id: number } }) {
     const blogInfo: BlogInfoType = await findBlogInfo(id)
+    const pre = ({children, ...props}: any) => {
+        const code = Children.onlyText(children)
+        return (
+            <pre className="highlight-wrap" {...props}>
+                <CopyButton code={code}/>
+                {children}
+            </pre>
+        )
+    }
     return (
         <>
             <meta name='viewport' content='width=device-width, initial-scale=1, maximum-scale=1'/>
@@ -56,6 +69,7 @@ export default async function Article({params: {id}}: { params: { id: number } }
                             <div className="prose max-w-none p-4 dark:prose-invert entry-content">
                                 <MDXRemote
                                     source={blogInfo.article.context}
+                                    components={{pre: pre}}
                                     options={{
                                         parseFrontmatter: true,
                                         mdxOptions: {
@@ -80,7 +94,12 @@ export default async function Article({params: {id}}: { params: { id: number } }
                                 />
                             </div>
                             <Recommend blogInfo={blogInfo}/>
-                            <Comment id={blogInfo.id}/>
+                            <div className="w-full text-center">
+                                <Session>
+                                    <Login/>
+                                </Session>
+                            </div>
+                            {/*<Comment id={blogInfo.id}/>*/}
                         </div>
                     </div>
                 </div>

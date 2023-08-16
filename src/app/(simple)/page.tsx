@@ -5,7 +5,7 @@ import {ClockIcon, FireIcon, ChatBubbleBottomCenterTextIcon, WalletIcon} from '@
 
 
 async function findBlogList() {
-    const res = await fetch('https://admin.inyaw.com/api/blog/web/page?page=' + 1)
+    const res = await fetch('https://admin.inyaw.com/api/blog/web/page?page=' + 1, {next: {tags: ['collection']}})
     const post = await res.json()
     if (post && post.code && post.code === 1) {
         return post.data;
