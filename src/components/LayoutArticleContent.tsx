@@ -128,6 +128,7 @@ export default function LayoutArticleContent({children}: { children: React.React
                         <ArrowUpIcon className="inline-block w-4 h-4 text-white"/>
                     </button>
                 </div>
+                <div id="aplayer" className="hidden md:block"/>
             </div>
         </div>
     )

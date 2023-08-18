@@ -14,7 +14,7 @@ export default function GlobalNav({menuShow}: { menuShow: boolean }) {
             {({open}) => (
                 <>
                     <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-                        <div className="flex h-16 justify-between">
+                        <div className="flex h-12 justify-between">
                             <div className="flex">
                                 <div className="flex flex-shrink-0 items-center">
                                     <Logo/>
@@ -54,7 +54,6 @@ export default function GlobalNav({menuShow}: { menuShow: boolean }) {
                                 {/*    <span className="sr-only">View notifications</span>*/}
                                 {/*    <BellIcon className="h-6 w-6" aria-hidden="true"/>*/}
                                 {/*</button>*/}
-                                <div id="aplayer" className="hidden md:block"/>
                                 <Search />
 
                                 {/* Profile dropdown */}

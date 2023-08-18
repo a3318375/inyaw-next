@@ -6,6 +6,8 @@ import clsx from "clsx";
 import {useEffect, useState} from "react";
 import {Lv2d} from "@/components/Lv2d";
 import {ArrowUpIcon, Cog6ToothIcon, MoonIcon, SunIcon, ArrowDownIcon} from "@heroicons/react/20/solid";
+import {Metadata} from "next";
+
 
 export default function LayoutContent({children}: { children: React.ReactNode }) {
     const [buttonShow, setButtonShow] = useState(false)
@@ -75,6 +77,7 @@ export default function LayoutContent({children}: { children: React.ReactNode })
             setTick(true)
         }
     }
+
     useEffect(() => {
         document.getElementById('pageContent')?.addEventListener('scroll', onScroll, false);
     }, []);
@@ -122,6 +125,7 @@ export default function LayoutContent({children}: { children: React.ReactNode })
                         </button>
                     </div>
                 </div>
+                <div id="aplayer" className="hidden md:block"/>
             </div>
         </div>
     )

@@ -39,15 +39,15 @@ export default async function Home() {
                                 </div>
                                 <a href={'/article/' + item.id}
                                    className="block mt-3 text-lg leading-tight font-medium text-black dark:text-white">{item.title}</a>
-                                <div className="w-full text-xs py-2 dark:text-white">
+                                <div className="w-full text-xs py-2 dark:text-white text-describe">
                                     <FireIcon
-                                        className="text-sm ml-1 inline-block text-rose-500 w-4 h-4 text-warning"/><span> {item.views} 热度</span>
+                                        className="text-sm ml-1 inline-block w-4 h-4 text-warning"/><span> {item.views} 热度</span>
                                     <ChatBubbleBottomCenterTextIcon
-                                        className="text-sm ml-1 inline-block text-rose-500 w-4 h-4 text-warning"/><span> {item.comments} 条评论</span>
-                                    <WalletIcon className="text-sm ml-1 inline-block text-rose-500 w-4 h-4 text-warning"/><span> {item.type?.name}</span>
+                                        className="text-sm ml-1 inline-block w-4 h-4 text-warning"/><span> {item.comments} 条评论</span>
+                                    <WalletIcon className="text-sm ml-1 inline-block w-4 h-4 text-warning"/><span> {item.type?.name}</span>
                                 </div>
                                 <Link href={'/article/' + item.id}>
-                                    <p className="dark:text-white">{item.summary}</p>
+                                    <p className="dark:text-white text-summary">{item.summary}</p>
                                 </Link>
                             </div>
                         </div>

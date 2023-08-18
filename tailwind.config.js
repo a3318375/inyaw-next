@@ -22,6 +22,12 @@ module.exports = {
         'img-default': `url('https://media.inyaw.com/cover/7037ade43b1e484eac903a111b7ea709.jpg-inyaa')`,
         'img-mobile-default': `url('https://media.inyaw.com/cover/14db2cf6e4b441368243b23722d212c9.png-inyaa')`,
       },
+      colors: {
+        transparent: 'transparent',
+        current: 'currentColor',
+        'describe': '#858585',
+        'summary': '#4c4948',
+      },
       typography: {
         DEFAULT: {
           css: {

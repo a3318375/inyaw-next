@@ -11,7 +11,7 @@ export function Lv2d() {
                             // @ts-ignore
                             const ap = new APlayer({
                                 container: document.getElementById('aplayer'),
-                                listFolded: true,
+                                fixed: true,
                                 audio: [ // 歌曲列表
                                     {
                                         name: '星茶会',
@@ -51,6 +51,7 @@ export function Lv2d() {
                         initLv2d();
                     }}/>
             <Script src='https://media.inyaw.com/css/canvas-next/canvas-nest.js' strategy="lazyOnload" />
+            <link rel="stylesheet" href="https://media.inyaw.com/css/APlayer/APlayer.min.css" />
             <div id="L2dCanvas"
                  className="Canvas hidden md:block fixed opacity-100 pointer-events-none bottom-[-130px] right-[-250px] -z-999"/>
         </>
