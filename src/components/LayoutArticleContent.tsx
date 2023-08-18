@@ -112,7 +112,7 @@ export default function LayoutArticleContent({children}: { children: React.React
                     {children}
                 </div>
                 <Lv2d/>
-                <Footer layoutType={false}/>
+                <Footer />
                 <div className="fixed bottom-10 right-10 z-999">
                     <button className={clsx('block mb-2 w-9 h-9 rounded-md bg-sky-400 text-center', buttonShow ? '' : 'hidden')}
                             onClick={updateTheme}>

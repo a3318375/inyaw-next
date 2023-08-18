@@ -87,7 +87,7 @@ export default function LayoutContent({children}: { children: React.ReactNode })
                 <GlobalNav menuShow={menuShow}/>
                 <div>
                     <div className="relative w-full min-h-screen hidden md:block bg-no-repeat bg-cover bg-center"
-                         style={{backgroundImage: `url(https://media.inyaw.com/cover/7037ade43b1e484eac903a111b7ea709.jpg-inyaa)`}}>
+                         style={{backgroundImage: `url(https://media.inyaw.com/cover/cover1.png-inyaa)`}}>
                         <div className="absolute w-full h-full bg-black bg-opacity-30">
                             <div className="absolute top-[43%] text-center w-full">
                                 <h1 className="text-white text-4xl pb-2">INYAW BLOG</h1>
@@ -108,7 +108,7 @@ export default function LayoutContent({children}: { children: React.ReactNode })
                         </div>
                     </div>
                     <Lv2d/>
-                    <Footer layoutType={true}/>
+                    <Footer />
                     <div className="fixed bottom-10 right-10 z-999">
                         <button className={clsx('block mb-2 w-9 h-9 rounded-md bg-sky-400 text-center', buttonShow ? '' : 'hidden')}
                                 onClick={updateTheme}>
