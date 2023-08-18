@@ -50,6 +50,7 @@ export function Lv2d() {
                         }
                         initLv2d();
                     }}/>
+            <Script src='https://media.inyaw.com/css/canvas-next/canvas-nest.js' strategy="lazyOnload" />
             <div id="L2dCanvas"
                  className="Canvas hidden md:block fixed opacity-100 pointer-events-none bottom-[-130px] right-[-250px] -z-999"/>
         </>

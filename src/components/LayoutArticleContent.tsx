@@ -106,8 +106,6 @@ export default function LayoutArticleContent({children}: { children: React.React
     }, []);
     return (
         <div className="w-full h-screen grid overflow-hidden">
-            <img
-                className={clsx(navShow ? 'fixed w-full h-full object-cover -z-999 bg-img-mobile-default md:bg-img-default bg-no-repeat bg-cover' : 'fixed filter blur-sm w-full h-full object-cover -z-999 bg-img-mobile-default md:bg-img-default bg-no-repeat bg-cover')}/>
             <div id="pageContent" className="overflow-y-auto relative">
                 <GlobalNav menuShow={menuShow}/>
                 <div className="w-full">

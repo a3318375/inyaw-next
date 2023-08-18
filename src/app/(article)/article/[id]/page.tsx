@@ -63,7 +63,7 @@ export default async function Article({params: {id}}: { params: { id: number } }
                         </div>
                     </div>
                 </div>
-                <div className="bg-white bg-opacity-90 dark:bg-slate-900">
+                <div>
                     <div className="flex items-stretch relative">
                         <div className="md:max-w-content mx-auto">
                             <div className="prose max-w-none p-4 dark:prose-invert entry-content">

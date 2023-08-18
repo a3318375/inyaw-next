@@ -18,6 +18,9 @@
   background: #dba0a0;
   border-radius: 100vh;
 }
+canvas {
+  z-index: -1;
+}
 
 .aplayer.aplayer-arrow .aplayer-icon-loop,
 .aplayer.aplayer-arrow .aplayer-icon-order,

@@ -19,7 +19,7 @@ export default function GlobalNav({menuShow}: { menuShow: boolean }) {
                                 <div className="flex flex-shrink-0 items-center">
                                     <Logo/>
                                 </div>
-                                <div className="hidden sm:ml-6 sm:flex sm:space-x-8 dark:text-white">
+                                <div className="hidden sm:ml-6 sm:flex sm:space-x-8 dark:text-white text-xs">
                                     <Link
                                         href="/"
                                         className="inline-flex items-center border-b-2 border-indigo-500 px-1 pt-1 text-sm font-semibold hover:text-orange-500"

@@ -5,7 +5,7 @@ import Footer from "@/components/Footer";
 import clsx from "clsx";
 import {useEffect, useState} from "react";
 import {Lv2d} from "@/components/Lv2d";
-import {ArrowUpIcon, Cog6ToothIcon, MoonIcon, SunIcon} from "@heroicons/react/20/solid";
+import {ArrowUpIcon, Cog6ToothIcon, MoonIcon, SunIcon, ArrowDownIcon} from "@heroicons/react/20/solid";
 
 export default function LayoutContent({children}: { children: React.ReactNode }) {
     const [buttonShow, setButtonShow] = useState(false)
@@ -80,12 +80,25 @@ export default function LayoutContent({children}: { children: React.ReactNode })
     }, []);
     return (
         <div className="w-full h-screen grid overflow-hidden dark:bg-slate-800">
-            <img
-                className={clsx(navShow ? 'fixed w-full h-full object-cover -z-999 bg-img-mobile-default md:bg-img-default bg-no-repeat bg-cover' : 'fixed filter blur-sm w-full h-full object-cover -z-999 bg-img-mobile-default md:bg-img-default bg-no-repeat bg-cover')}/>
             <div id="pageContent" className="overflow-y-auto">
                 <GlobalNav menuShow={menuShow}/>
                 <div>
-                    <div className="w-full min-h-screen hidden md:block"/>
+                    <div className="relative w-full min-h-screen hidden md:block bg-no-repeat bg-cover bg-center"
+                         style={{backgroundImage: `url(https://media.inyaw.com/cover/7037ade43b1e484eac903a111b7ea709.jpg-inyaa)`}}>
+                        <div className="absolute w-full h-full bg-black bg-opacity-30">
+                            <div className="absolute top-[43%] text-center w-full">
+                                <h1 className="text-white text-4xl pb-2">INYAW BLOG</h1>
+                                <div className="text-white pt-2">一个个人小屋</div>
+                            </div>
+                            <div className="absolute bottom-8 w-full">
+                                <div className="text-white animate-bounce w-full text-center m-auto">
+                                    <button>
+                                        <ArrowDownIcon className="w-5 h-5" />
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                     <div className="w-full flex items-center justify-center">
                         <div id="mainContent" className="mx-0 md:p-8 md:max-w-content">
                             {children}
