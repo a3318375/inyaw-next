@@ -1,10 +1,9 @@
-import {BlogInfoType} from "@/api/service";
+import {BlogInfoType, BlogListResult} from "@/api/service";
 import {Metadata} from "next";
 import rehypePrettyCode from "rehype-pretty-code";
 import toc, {HtmlElementNode} from "@jsdevtools/rehype-toc";
 import rehypeSlug from "rehype-slug";
 import Recommend from "@/components/Recommend";
-import Comment from "@/components/Comment";
 import {MDXRemote} from "next-mdx-remote/rsc";
 import Login from "@/components/Login";
 import Session from "@/components/SessionProvider";
@@ -28,6 +27,17 @@ export async function generateMetadata({params: {id}}: { params: { id: number } 
         viewport: 'width=device-width, initial-scale=1, maximum-scale=1',
         keywords: blogInfo.title,
         description: blogInfo.summary,
+    }
+}
+
+export async function generateStaticParams() {
+    const posts: BlogListResult = await fetch('https://admin.inyaw.com/api/blog/web/list', {next: {tags: ['collection']}}).then((res) => res.json())
+    if (posts && posts.data && posts.code && posts.code === 1) {
+        return posts.data.map((post) => ({
+            id: post.id +'',
+        }))
+    } else {
+        return {}
     }
 }
 

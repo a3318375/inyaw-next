@@ -2,7 +2,19 @@ import Link from 'next/link'
 import clsx from 'clsx';
 import type {PostsPage} from '@/api/service'
 import {ClockIcon, FireIcon, ChatBubbleBottomCenterTextIcon, WalletIcon} from '@heroicons/react/24/outline'
+import {BlogPageResult} from "@/api/service";
 
+
+export async function generateStaticParams() {
+    const posts: BlogPageResult = await fetch('https://admin.inyaw.com/api/blog/web/page?page=1', {next: {tags: ['collection']}}).then((res) => res.json())
+    if (posts && posts.data && posts.code && posts.code === 1) {
+        Array.from(new Array(posts.data.totalPages).keys()).map((page) => ({
+            slug: page + '',
+        }))
+    } else {
+        return {}
+    }
+}
 
 async function findBlogList(slug: number) {
     const res = await fetch('https://admin.inyaw.com/api/blog/web/page?page=' + slug)
@@ -60,7 +72,7 @@ export default async function Page({params: {slug}}: { params: { slug: number } 
                 >
                     上一页
                 </Link>
-                <Link href={'/blog/' + posts.number + 2}
+                <Link href={'/blog/' + (posts.number + 2)}
                       className={clsx('relative ml-3 inline-flex items-center rounded-md bg-white bg-opacity-60 px-3 py-2 text-sm font-semibold text-gray-900 ring-1 ring-inset ring-gray-300 hover:text-red-400 focus-visible:outline-offset-0', posts.number + 1 > posts.totalPages ? '' : 'none')}
                 >
                     下一页

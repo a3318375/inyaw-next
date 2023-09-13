@@ -10,6 +10,15 @@ export type BlogArticleType = {
     blogInfo?: BlogInfoType
 }
 
+export type BlogListResult = {
+    code?: number,
+    data?: BlogInfoType[]
+}
+export type BlogPageResult = {
+    code?: number,
+    data?: PostsPage
+}
+
 export type BlogInfoType = {
     id: number;
     title: string;
