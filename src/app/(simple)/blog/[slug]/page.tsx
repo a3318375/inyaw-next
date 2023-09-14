@@ -2,16 +2,17 @@ import Link from 'next/link'
 import clsx from 'clsx';
 import type {PostsPage} from '@/api/service'
 import {ClockIcon, FireIcon, ChatBubbleBottomCenterTextIcon, WalletIcon} from '@heroicons/react/24/outline'
+import {BlogPageResult} from "@/api/service";
 
 
 export async function generateStaticParams() {
-    const posts = await fetch('https://admin.inyaw.com/api/blog/web/page?page=1', {next: {tags: ['collection']}}).then((res) => res.json())
+    const posts: BlogPageResult = await fetch('https://admin.inyaw.com/api/blog/web/page?page=1', {next: {tags: ['collection']}}).then((res) => res.json())
     if (posts && posts.data && posts.code && posts.code === 1) {
-        Array.from(new Array(posts.data.totalPages).keys()).map((page) => ({
+        return Array.from(new Array(posts.data.totalPages).keys()).map((page) => ({
             slug: page + '',
         }))
     } else {
-        return {}
+        return [{}]
     }
 }
 
