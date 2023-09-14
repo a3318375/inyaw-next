@@ -30,16 +30,16 @@ export async function generateMetadata({params: {id}}: { params: { id: number } 
     }
 }
 
-export async function generateStaticParams() {
-    const posts: BlogListResult = await fetch('https://admin.inyaw.com/api/blog/web/list', {next: {tags: ['collection']}}).then((res) => res.json())
-    if (posts && posts.data && posts.code && posts.code === 1) {
-        return posts.data.map((post) => ({
-            id: post.id +'',
-        }))
-    } else {
-        return [{}]
-    }
-}
+// export async function generateStaticParams() {
+//     const posts: BlogListResult = await fetch('https://admin.inyaw.com/api/blog/web/list', {next: {tags: ['collection']}}).then((res) => res.json())
+//     if (posts && posts.data && posts.code && posts.code === 1) {
+//         return posts.data.map((post) => ({
+//             id: post.id +'',
+//         }))
+//     } else {
+//         return [{}]
+//     }
+// }
 
 export default async function Article({params: {id}}: { params: { id: number } }) {
     const blogInfo: BlogInfoType = await findBlogInfo(id)
