@@ -10,7 +10,7 @@ export type BlogArticleType = {
     blogInfo?: BlogInfoType
 }
 
-export typBlogListResult = {
+export type BlogListResult = {
     code?: number,
     data?: BlogInfoType[]
 }
