@@ -1,4 +1,4 @@
-import {BlogInfoType, BlogListResult} from "@/api/service";
+import {BlogInfoType} from "@/api/service";
 import {Metadata} from "next";
 import rehypePrettyCode from "rehype-pretty-code";
 import toc, {HtmlElementNode} from "@jsdevtools/rehype-toc";
@@ -33,7 +33,7 @@ export async function generateMetadata({params: {id}}: { params: { id: number } 
 export async function generateStaticParams() {
     const posts = await fetch('https://admin.inyaw.com/api/blog/web/list', {next: {tags: ['collection']}}).then((res) => res.json())
     if (posts && posts.data && posts.code && posts.code === 1) {
-        return posts.data.map((post) => ({
+        return posts.data.map((post: BlogInfoType) => ({
             id: post.id +'',
         }))
     } else {
