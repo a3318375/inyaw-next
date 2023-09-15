@@ -9,6 +9,7 @@ import Login from "@/components/Login";
 import Session from "@/components/SessionProvider";
 import CopyButton from "@/components/CopyButton";
 import Children from 'react-children-utilities'
+import Comment from "@/components/Comment";
 
 async function findBlogInfo(id: number) {
     const res = await fetch('https://admin.inyaw.com/api/blog/web/info?id=' + id, {next: {tags: ['collection']}})
@@ -104,12 +105,7 @@ export default async function Article({params: {id}}: { params: { id: number } }
                                 />
                             </div>
                             <Recommend blogInfo={blogInfo}/>
-                            <div className="w-full text-center">
-                                <Session>
-                                    <Login/>
-                                </Session>
-                            </div>
-                            {/*<Comment id={blogInfo.id}/>*/}
+                            <Comment />
                         </div>
                     </div>
                 </div>

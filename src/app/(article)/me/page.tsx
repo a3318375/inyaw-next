@@ -34,7 +34,7 @@ export default async function Me() {
                     <div className="md:max-w-content mx-auto h-[65vh]">
                         <p>一个臭写java的，翻新过很多版本了，从微服务，到wordpress，又回到java</p>
                         <p>目前版本是react + nextjs</p>
-                        <Comment id={114514}/>
+                        <Comment />
                     </div>
                 </div>
             </div>
