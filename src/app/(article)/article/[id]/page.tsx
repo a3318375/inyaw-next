@@ -5,8 +5,6 @@ import toc, {HtmlElementNode} from "@jsdevtools/rehype-toc";
 import rehypeSlug from "rehype-slug";
 import Recommend from "@/components/Recommend";
 import {MDXRemote} from "next-mdx-remote/rsc";
-import Login from "@/components/Login";
-import Session from "@/components/SessionProvider";
 import CopyButton from "@/components/CopyButton";
 import Children from 'react-children-utilities'
 import Comment from "@/components/Comment";
