@@ -15,3 +15,8 @@ npm run build
 ## 部署
 
 本项目使用的是github action + docker的一种方式，其他想法的请各展神通
+
+
+## 预览
+
+https://www.inyaw.com

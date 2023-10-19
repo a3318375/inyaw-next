@@ -29,7 +29,7 @@ export default function LayoutContent({children}: { children: React.ReactNode })
         window.scrollTo(0,0)
     }
     return (
-        <div className="w-full h-screen dark:bg-slate-800">
+        <div className="w-full dark:bg-slate-800">
             <GlobalNav/>
             <div>
                 <div className="relative w-full min-h-screen hidden md:block bg-no-repeat bg-cover bg-center"
@@ -53,25 +53,25 @@ export default function LayoutContent({children}: { children: React.ReactNode })
                         {children}
                     </div>
                 </div>
-                <Lv2d/>
-                <Footer/>
-                <div className="fixed bottom-10 right-10 z-999 hidden md:block">
-                    <button
-                        className={clsx('block mb-2 w-9 h-9 rounded-md bg-sky-400 text-center', buttonShow ? '' : 'hidden')}
-                        onClick={updateTheme}>
-                        {theme && theme === 'light'
-                            ? <SunIcon className="inline-block w-4 h-4 text-white"/>
-                            : <MoonIcon className="inline-block w-4 h-4 text-white"/>
-                        }
-                    </button>
-                    <button className="block mb-2 w-9 h-9 rounded-md bg-sky-400 text-center"
-                            onClick={() => setButtonShow(!buttonShow)}>
-                        <Cog6ToothIcon className="inline-block w-4 h-4 text-white animate-spin"/>
-                    </button>
-                    <button className="block mb-2 w-9 h-9 rounded-md bg-sky-400 text-center" onClick={toTop}>
-                        <ArrowUpIcon className="inline-block w-4 h-4 text-white"/>
-                    </button>
-                </div>
+            </div>
+            <Lv2d/>
+            <Footer/>
+            <div className="fixed bottom-10 right-10 z-999 hidden md:block">
+                <button
+                    className={clsx('block mb-2 w-9 h-9 rounded-md bg-sky-400 text-center', buttonShow ? '' : 'hidden')}
+                    onClick={updateTheme}>
+                    {theme && theme === 'light'
+                        ? <SunIcon className="inline-block w-4 h-4 text-white"/>
+                        : <MoonIcon className="inline-block w-4 h-4 text-white"/>
+                    }
+                </button>
+                <button className="block mb-2 w-9 h-9 rounded-md bg-sky-400 text-center"
+                        onClick={() => setButtonShow(!buttonShow)}>
+                    <Cog6ToothIcon className="inline-block w-4 h-4 text-white animate-spin"/>
+                </button>
+                <button className="block mb-2 w-9 h-9 rounded-md bg-sky-400 text-center" onClick={toTop}>
+                    <ArrowUpIcon className="inline-block w-4 h-4 text-white"/>
+                </button>
             </div>
             <div id="aplayer" className="hidden md:block"/>
         </div>

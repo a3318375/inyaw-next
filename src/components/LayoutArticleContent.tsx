@@ -56,7 +56,7 @@ export default function LayoutArticleContent({children}: { children: React.React
         }
     }, []);
     return (
-        <div className="w-full h-screen dark:bg-slate-800">
+        <div className="w-full dark:bg-slate-800">
             <GlobalNav/>
             <div className="w-full">
                 {children}
