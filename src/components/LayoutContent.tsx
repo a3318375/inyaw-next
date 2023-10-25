@@ -29,7 +29,7 @@ export default function LayoutContent({children}: { children: React.ReactNode })
         window.scrollTo(0,0)
     }
     return (
-        <div className="w-full dark:bg-slate-800">
+        <div className="w-full dark:bg-slate-800 font-sans antialiased">
             <GlobalNav/>
             <div>
                 <div className="relative w-full min-h-screen hidden md:block bg-no-repeat bg-cover bg-center"
