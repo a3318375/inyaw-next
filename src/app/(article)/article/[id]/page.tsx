@@ -59,7 +59,7 @@ export default async function Article({params: {id}}: { params: { id: number } }
             <div className="w-full relative">
                 <div className="w-full">
                     {/*<div className="bg-white bg-opacity-80">*/}
-                    <div className="relative w-full h-25rem bg-no-repeat bg-cover bg-center"
+                    <div className="relative w-full h-18rem md:h-25rem bg-no-repeat bg-cover bg-center"
                          style={{backgroundImage: `url(${blogInfo.cover}-inyaa)`}}>
                         <div className="absolute w-full h-full bg-black bg-opacity-30">
                             <div className="absolute bottom-16 text-center w-full">
@@ -73,7 +73,7 @@ export default async function Article({params: {id}}: { params: { id: number } }
                     </div>
                 </div>
                 <div>
-                    <div className="flex items-stretch relative">
+                    <div className="md:flex items-stretch relative">
                         <div className="md:max-w-content mx-auto">
                             <div className="prose max-w-none p-4 dark:prose-invert entry-content">
                                 <MDXRemote

@@ -69,3 +69,7 @@ canvas {
   position: fixed;
   transform: translateY(0%);
 }
+
+.toc {
+  @apply hidden md:block;
+}

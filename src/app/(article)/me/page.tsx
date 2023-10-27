@@ -30,7 +30,7 @@ export default async function Me() {
                 </div>
             </div>
             <div className="bg-white bg-opacity-90 dark:bg-slate-900">
-                <div className="flex items-stretch relative">
+                <div className="md:flex items-stretch relative">
                     <div className="md:max-w-content mx-auto h-[65vh]">
                         <p>一个臭写java的，翻新过很多版本了，从微服务，到wordpress，又回到java</p>
                         <p>目前版本是react + nextjs</p>

@@ -40,7 +40,7 @@ export default async function Archive() {
                 </div>
             </div>
             <div className="bg-white bg-opacity-90 dark:bg-slate-900">
-                <div className="flex items-stretch relative">
+                <div className="md:flex items-stretch relative">
                     <div className="md:max-w-content mx-auto">
                         <ol className="border-l-2 border-blue-600 pt-10">
                             {(blogInfo && blogInfo.length > 0) && blogInfo.map((item, index) => {
