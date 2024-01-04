@@ -1,0 +1,36 @@
+
+name: Node.js CI
+
+on:
+  push:
+    branches: [ main ]
+    paths-ignore:
+      - 'README.md'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+        name: 拉取代码
+      - uses: mr-smithers-excellent/docker-build-push@v5
+        name: 登录并编译dockerfile
+        with:
+          image: inyaa/inyaw-next
+          tags: latest
+          registry: docker.io
+          dockerfile: Dockerfile
+          username: ${{ secrets.DOCKER_HUB_USERNAME }}
+          password: ${{ secrets.DOCKER_HUB_PASSWORD }}
+      - name: ssh远程部署
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.USERNAME }}
+          password: ${{ secrets.PASSWORD }}
+          port: ${{ secrets.PORT }}
+          script: |
+            podman stop $(sudo podman ps -a | grep "inyaw-next" | awk '{print $1}')
+            podman rm -f $(sudo podman ps -a | grep inyaw-next | awk '{print $1}')
+            podman rmi $(sudo podman images | grep inyaw-next | awk '{print $3}')
+            podman run -d -p 3000:3000 --name inyaw-next --network inyaw --network-alias inyaw-next docker.io/inyaa/inyaw-next:latest
