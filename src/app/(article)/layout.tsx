@@ -13,9 +13,9 @@ export const metadata: Metadata = {
 export default function ArticleLayout({children}: { children: React.ReactNode }) {
     return (
         <body>
-        <LayoutArticleContent>
-            {children}
-        </LayoutArticleContent>
+            <LayoutArticleContent>
+                {children}
+            </LayoutArticleContent>
         </body>
     )
 }
