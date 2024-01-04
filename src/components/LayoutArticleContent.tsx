@@ -8,6 +8,7 @@ import {Lv2d} from "@/components/Lv2d";
 import { ArrowUpIcon, GearIcon, SunIcon, MoonIcon } from "@radix-ui/react-icons"
 
 export default function LayoutArticleContent({children}: { children: React.ReactNode }) {
+    const [menuHide, setMenuHide] = useState(true)
     const toTop = () => {
         window.scrollTo(0,0)
     }
@@ -36,10 +37,27 @@ export default function LayoutArticleContent({children}: { children: React.React
             // 监听滚动
             Array.from(tocList).map(item => toc.observe(item));
         }
+
+        const headerList = document.querySelectorAll("#topIndex");
+        if (headerList && headerList.length > 0) {
+            const menu = new IntersectionObserver(entries => {
+                entries.forEach(entry => {
+                    // Add 'active' class if observation target is inside viewport
+                    if (entry.isIntersecting) {
+                        setMenuHide(true)
+                    } else {
+                        setMenuHide(false)
+                    }
+                })
+            })
+            // 监听滚动
+            Array.from(headerList).map(item => menu.observe(item));
+        }
     }, []);
     return (
         <div className="w-full dark:bg-slate-800">
-            <MainHeader/>
+            <div id="topIndex" />
+            <MainHeader menuHide={menuHide}/>
             <div className="w-full">
                 {children}
             </div>

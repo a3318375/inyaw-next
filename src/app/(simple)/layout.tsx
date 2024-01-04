@@ -10,12 +10,10 @@ export const metadata: Metadata = {
 
 export default function SimpleLayout({children}: { children: React.ReactNode }) {
     return (
-        <html lang="en">
-            <body>
-                <LayoutContent>
-                    {children}
-                </LayoutContent>
-            </body>
-        </html>
+        <body>
+        <LayoutContent>
+            {children}
+        </LayoutContent>
+        </body>
     )
 }

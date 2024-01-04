@@ -88,7 +88,6 @@
     margin-top: -30px;
     left: 0;
     width: 100%;
-    font-family: Ubuntu, sans-serif;
     font-weight: 700;
     padding: 0 80px;
     text-indent: 15px;
@@ -195,7 +194,6 @@ td.hljs-ln-numbers {
     text-align: center;
     color: #888f96;
     background: #1d1f21;
-    font-family: 'Source Code Pro', monospace, Helvetica, Tahoma, Arial, STXihei, "STHeiti Light", "Microsoft YaHei", sans-serif;
     vertical-align: top;
     position: absolute;
     left: 0;

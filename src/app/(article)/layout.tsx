@@ -12,12 +12,10 @@ export const metadata: Metadata = {
 
 export default function ArticleLayout({children}: { children: React.ReactNode }) {
     return (
-        <html lang="en">
-            <body>
-                <LayoutArticleContent>
-                    {children}
-                </LayoutArticleContent>
-            </body>
-        </html>
+        <body>
+        <LayoutArticleContent>
+            {children}
+        </LayoutArticleContent>
+        </body>
     )
 }

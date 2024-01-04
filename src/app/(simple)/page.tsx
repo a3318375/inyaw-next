@@ -21,7 +21,7 @@ export default async function Home() {
             {(posts && posts.content && posts.content.length > 0) && posts.content.map((item, index) => {
                 return (
                     <div key={index}
-                         className="w-full mx-auto bg-white bg-opacity-80 dark:bg-slate-900 rounded-xl shadow-md overflow-hidden">
+                         className="w-full mx-auto bg-white bg-opacity-80 dark:bg-slate-900 rounded-xl shadow-[0_0px_10px_rgba(0,0,0,0.1)] overflow-hidden">
                         <div className="md:flex">
                             <div
                                 className={clsx('md:shrink-0 md:w-1/2', index % 2 === 0 ? 'md:order-2' : 'md:order-4')}>

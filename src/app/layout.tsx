@@ -4,41 +4,24 @@ import localFont from 'next/font/local'
 const myFont = localFont({
     src: [
         {
-            path: '../assets/font/MiSans-Thin.woff',
-            weight: '100',
-            style: 'thin',
-        },
-        {
-            path: '../assets/font/MiSans-ExtraLight.woff',
-            weight: '200',
-        },
-        {
-            path: '../assets/font/MiSans-Light.woff',
-            weight: '300',
-        },
-        {
             path: '../assets/font/MiSans-Normal.woff',
             weight: '400',
+            style: 'normal',
         },
         {
             path: '../assets/font/MiSans-Medium.woff',
             weight: '500',
+            style: 'medium',
         },
         {
             path: '../assets/font/MiSans-Demibold.woff',
             weight: '600',
+            style: 'demibold',
         },
         {
             path: '../assets/font/MiSans-Semibold.woff',
             weight: '700',
-        },
-        {
-            path: '../assets/font/MiSans-Bold.woff',
-            weight: '800',
-        },
-        {
-            path: '../assets/font/MiSans-Heavy.woff',
-            weight: '900',
+            style: 'semibold',
         },
     ],
 })
