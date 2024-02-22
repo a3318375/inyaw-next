@@ -19,10 +19,10 @@ export default function MainNav({menuHide}: { menuHide: boolean }) {
         <div className="mr-4 hidden md:flex">
             <Link href="/" className="mr-6 flex items-center space-x-2">
                 <ruby className={clsx(menuHide ? 'text-white' : '')}>
-                    <span>yoyo</span>
+                    <span>I</span>
                     <span>の</span>
                     <span>梦中小屋</span>
-                    <rt className="text-10px opacity-0 hover:opacity-100">瑶瑶的梦中小屋</rt>
+                    <rt className="text-10px opacity-0 hover:opacity-100">I的梦中小屋</rt>
                 </ruby>
             </Link>
             <nav className={clsx('flex items-center space-x-6 text-sm font-semibold', menuHide ? ' text-white' : '')}>

@@ -39,7 +39,7 @@ export default function LayoutContent({children}: { children: React.ReactNode })
                     <div className="absolute w-full h-full bg-black bg-opacity-30">
                         <div className="absolute top-[43%] text-center w-full">
                             <h1 className="text-white text-4xl pb-2">INYAW BLOG</h1>
-                            <div className="text-white pt-2">一个个人小屋</div>
+                            <div className="text-white pt-2">学习也是生活的一部分</div>
                         </div>
                         <div className="absolute bottom-8 w-full">
                             <div className="text-white animate-bounce w-full text-center m-auto">
