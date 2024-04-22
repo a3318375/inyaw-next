@@ -41,8 +41,26 @@ export async function generateMetadata({params: {id}}: { params: { id: number } 
 //     }
 // }
 
+
+async function getCover() {
+    const res = await fetch('https://admin.inyaw.com/api/file/image?type=0', { cache: 'no-store' })
+    const post = await res.json()
+    if (post && post.code && post.code === 1) {
+        return post.data + '-inyaa'
+    } else {
+        return 'https://media.inyaw.com/cover/cover1.png-inyaa'
+    }
+}
+
 export default async function Article({params: {id}}: { params: { id: number } }) {
     const blogInfo: BlogInfoType = await findBlogInfo(id)
+    const cover: string = await getCover()
+    const lastCover: string = await getCover()
+    const nextCover: string = await getCover()
+    const coverObj ={
+        lastCover: lastCover,
+        nextCover: nextCover,
+    }
     const pre = ({children, ...props}: any) => {
         const code = Children.onlyText(children)
         return (
@@ -61,7 +79,7 @@ export default async function Article({params: {id}}: { params: { id: number } }
                 <div className="w-full">
                     {/*<div className="bg-white bg-opacity-80">*/}
                     <div className="relative w-full h-18rem md:h-25rem bg-no-repeat bg-cover bg-center"
-                         style={{backgroundImage: `url(${blogInfo.cover}-inyaa)`}}>
+                         style={{backgroundImage: `url(${cover})`}}>
                         <div className="absolute w-full h-full bg-black bg-opacity-30">
                             <div className="absolute bottom-16 text-center w-full">
                                 <h1 className="text-white text-4xl pb-2">{blogInfo.title}</h1>
@@ -104,7 +122,7 @@ export default async function Article({params: {id}}: { params: { id: number } }
                                     />
                                 </div>
                             </div>
-                            <Recommend blogInfo={blogInfo}/>
+                            <Recommend blogInfo={blogInfo} cover={coverObj}/>
                             <Comment />
                         </div>
                     </div>

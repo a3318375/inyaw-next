@@ -14,11 +14,22 @@ async function findBlogList() {
     }
 }
 
+async function getCover() {
+    const res = await fetch('https://admin.inyaw.com/api/file/image?type=0', { cache: 'no-store' })
+    const post = await res.json()
+    if (post && post.code && post.code === 1) {
+        return post.data + '-inyaa'
+    } else {
+        return 'https://media.inyaw.com/cover/cover1.png-inyaa'
+    }
+}
+
 export default async function Home() {
     const posts: PostsPage = await findBlogList()
     return (
         <div className="w-full grid gap-8">
-            {(posts && posts.content && posts.content.length > 0) && posts.content.map((item, index) => {
+            {(posts && posts.content && posts.content.length > 0) && posts.content.map(async (item, index) => {
+                const cover: string = await getCover()
                 return (
                     <div key={index}
                          className="w-full mx-auto bg-white bg-opacity-80 dark:bg-slate-900 rounded-xl shadow-[0_0px_10px_rgba(0,0,0,0.1)] overflow-hidden">
@@ -28,7 +39,7 @@ export default async function Home() {
                                 <Link href={'/article/' + item.id}>
                                     <img
                                         className="h-60 w-full object-cover transform transition duration-700 hover:scale-110"
-                                        src={item.cover + '-inyaa'}
+                                        src={cover}
                                         alt="Modern building architecture"/>
                                 </Link>
                             </div>
@@ -36,7 +47,8 @@ export default async function Home() {
                                 <a href={'/article/' + item.id}
                                    className="block mt-3 text-lg leading-tight font-medium text-black dark:text-white">{item.title}</a>
                                 <div className="w-full py-2 flex items-center dark:text-white text-describe text-sm">
-                                    <CalendarIcon className="mr-1 w-5 h-5"/>{dayjs(item.createTime).format('YYYY-MM-DD') }
+                                    <CalendarIcon
+                                        className="mr-1 w-5 h-5"/>{dayjs(item.createTime).format('YYYY-MM-DD')}
                                     <ArchiveIcon className="mx-1 w-5 h-5"/>{item.type?.name}
                                 </div>
                                 <Link href={'/article/' + item.id}>
