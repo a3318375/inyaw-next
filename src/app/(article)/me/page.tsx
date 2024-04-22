@@ -1,17 +1,7 @@
 import Comment from "@/components/Comment";
 
-async function getImage() {
-    const res = await fetch('https://admin.inyaw.com/api/file/image?type=0')
-    const post = await res.json()
-    if (post && post.code && post.code === 1) {
-        return post.data;
-    } else {
-        return {}
-    }
-}
 
-export default async function Me() {
-    const cover: string = await getImage()
+export default function Me() {
     return (
         <>
             <meta name='viewport' content='width=device-width, initial-scale=1, maximum-scale=1'/>
@@ -21,7 +11,7 @@ export default async function Me() {
             <div className="w-full">
                 {/*<div className="bg-white bg-opacity-80">*/}
                 <div className="relative w-full h-25rem bg-no-repeat bg-cover bg-center"
-                     style={{backgroundImage: `url(${cover}-inyaa)`}}>
+                     style={{backgroundImage: `url(https://admin.inyaw.com/api/file/image?type=0&random=${Math.random()})`}}>
                     <div className="absolute w-full h-full bg-black bg-opacity-30">
                         <div className="absolute bottom-16 text-center w-full">
                             <h1 className="text-white text-4xl pb-2">关于我</h1>
