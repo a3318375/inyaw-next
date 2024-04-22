@@ -35,7 +35,7 @@ export default function LayoutContent({children}: { children: React.ReactNode })
             <MainHeader menuHide={menuHide}/>
             <div>
                 <div className="relative w-full min-h-screen hidden md:block bg-no-repeat bg-cover bg-center"
-                     style={{backgroundImage: `url(https://media.inyaw.com/cover/cover1.png-inyaa)`}}>
+                     style={{backgroundImage: `url(https://admin.inyaw.com/api/file/image?type=0&random=${Math.random()})`}}>
                     <div className="absolute w-full h-full bg-black bg-opacity-30">
                         <div className="absolute top-[43%] text-center w-full">
                             <h1 className="text-white text-4xl pb-2">INYAW BLOG</h1>
