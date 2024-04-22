@@ -14,22 +14,12 @@ async function findBlogList() {
     }
 }
 
-async function getCover() {
-    const res = await fetch('https://admin.inyaw.com/api/file/image?type=0', { cache: 'no-store' })
-    const post = await res.json()
-    if (post && post.code && post.code === 1) {
-        return post.data + '-inyaa'
-    } else {
-        return 'https://media.inyaw.com/cover/cover1.png-inyaa'
-    }
-}
 
 export default async function Home() {
     const posts: PostsPage = await findBlogList()
     return (
         <div className="w-full grid gap-8">
-            {(posts && posts.content && posts.content.length > 0) && posts.content.map(async (item, index) => {
-                const cover: string = await getCover()
+            {(posts && posts.content && posts.content.length > 0) && posts.content.map((item, index) => {
                 return (
                     <div key={index}
                          className="w-full mx-auto bg-white bg-opacity-80 dark:bg-slate-900 rounded-xl shadow-[0_0px_10px_rgba(0,0,0,0.1)] overflow-hidden">
@@ -39,7 +29,7 @@ export default async function Home() {
                                 <Link href={'/article/' + item.id}>
                                     <img
                                         className="h-60 w-full object-cover transform transition duration-700 hover:scale-110"
-                                        src={cover}
+                                        src={'https://admin.inyaw.com/api/file/image?type=0&random=' + Math.random()}
                                         alt="Modern building architecture"/>
                                 </Link>
                             </div>
