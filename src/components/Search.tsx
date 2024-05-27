@@ -11,9 +11,21 @@ import {
     CommandList,
 } from "@/components/ui/command"
 import { cn } from "@/lib/utils"
+import {BlogList, InyaaBlogVo} from "@/api/service";
+import {useRouter} from "next/navigation";
 
 export default function Search() {
+    const router = useRouter()
     const [open, setOpen] = useState(false)
+    const [searchPost, setSearchPost] = useState<InyaaBlogVo[]>([])
+    const inputChange = async (title: string) => {
+        if (title) {
+            const res = await fetch('https://admin.inyaw.com/api/blog/web/list?title=' + title)
+            const post: BlogList = await res.json()
+            setSearchPost(post.data)
+        }
+    }
+
     return (
         <>
             <Button
@@ -30,17 +42,23 @@ export default function Search() {
                 </kbd>
             </Button>
             <CommandDialog open={open} onOpenChange={setOpen}>
-                <CommandInput placeholder="Type a command or search..." />
+                <CommandInput placeholder="Type a command or search..." onValueChange={inputChange}/>
                 <CommandList>
                     <CommandEmpty>No results found.</CommandEmpty>
                     <CommandGroup heading="Links">
-                        <CommandItem
-                            value='1'
-                            onSelect={() => {
-                            }}
-                        >
-                            114514
-                        </CommandItem>
+                        {(searchPost && searchPost.length > 0) && searchPost.map((item, index) => {
+                            return (
+                                <CommandItem
+                                    key={index}
+                                    onSelect={() => {
+                                        setOpen(false)
+                                        router.push('/article/' + item.id)
+                                    }}
+                                >
+                                    {item.title}
+                                </CommandItem>
+                            )
+                        })}
                     </CommandGroup>
                 </CommandList>
             </CommandDialog>

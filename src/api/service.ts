@@ -70,6 +70,11 @@ export type PostsPage = {
     empty?: boolean;
 }
 
+export type BlogList = {
+    code: number;
+    data: InyaaBlogVo[];
+}
+
 export type InyaaBlogVo = {
     id?: number;
     title?: string;
