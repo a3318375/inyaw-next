@@ -1,7 +1,7 @@
 import {BlogInfoType} from "@/api/service";
 
 async function findBlogList() {
-    const res = await fetch('https://admin.inyaw.com/api/blog/web/list', {next: {tags: ['collection']}}  )
+    const res = await fetch('https://admin.inyaw.com/api/blog/web/list', {next: {tags: ['page']}}  )
     const post = await res.json()
     if (post && post.code && post.code === 1) {
         return post.data;

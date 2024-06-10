@@ -20,7 +20,7 @@ export default function Search() {
     const [searchPost, setSearchPost] = useState<InyaaBlogVo[]>([])
     const inputChange = async (title: string) => {
         if (title) {
-            const res = await fetch('https://admin.inyaw.com/api/blog/web/list?title=' + title)
+            const res = await fetch('https://admin.inyaw.com/api/blog/web/list?title=' + title, {next: {tags: ['page']}})
             const post: BlogList = await res.json()
             setSearchPost(post.data)
         }

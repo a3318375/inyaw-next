@@ -11,7 +11,7 @@ import Comment from "@/components/Comment";
 import dayjs from "dayjs";
 
 async function findBlogInfo(id: number) {
-    const res = await fetch('https://admin.inyaw.com/api/blog/web/info?id=' + id, {next: {tags: ['collection']}})
+    const res = await fetch('https://admin.inyaw.com/api/blog/web/info?id=' + id, {next: {tags: ['info' + id]}})
     const post = await res.json()
     if (post && post.code && post.code === 1) {
         return post.data;
