@@ -18,7 +18,7 @@ jobs:
         with:
           image: inyaa/inyaw-next
           tags: latest
-          registry: docker.io
+          registry: ccr.ccs.tencentyun.com
           dockerfile: Dockerfile
           username: ${{ secrets.DOCKER_HUB_USERNAME }}
           password: ${{ secrets.DOCKER_HUB_PASSWORD }}
@@ -33,4 +33,4 @@ jobs:
             podman stop $(sudo podman ps -a | grep "inyaw-next" | awk '{print $1}')
             podman rm -f $(sudo podman ps -a | grep inyaw-next | awk '{print $1}')
             podman rmi $(sudo podman images | grep inyaw-next | awk '{print $3}')
-            podman run -d -p 3000:3000 --name inyaw-next --network inyaw --network-alias inyaw-next docker.io/inyaa/inyaw-next:latest
+            podman run -d -p 3000:3000 --name inyaw-next --network inyaw --network-alias inyaw-next ccr.ccs.tencentyun.com/inyaa/inyaw-next:latest
