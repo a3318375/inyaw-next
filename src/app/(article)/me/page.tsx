@@ -1,6 +1,5 @@
 import Comment from "@/components/Comment";
 
-
 export default function Me() {
     return (
         <>
@@ -19,12 +18,16 @@ export default function Me() {
                     </div>
                 </div>
             </div>
-            <div className="bg-white bg-opacity-90 dark:bg-slate-900">
+            <div>
                 <div className="md:flex items-stretch relative">
-                    <div className="md:max-w-content mx-auto h-[65vh]">
-                        <p>一个臭写java的，翻新过很多版本了，从微服务，到wordpress，又回到java</p>
-                        <p>目前版本是react + nextjs</p>
-                        <Comment />
+                    <div className="md:max-w-content mx-auto">
+                        <div className="prose max-w-none p-4 dark:prose-invert">
+                            <div className="entry-content">
+                                <p className="mt-5">一个2013年毕业，非科班出身，大专写java的</p>
+                                <p>对前端还算有兴趣，采用技术是从jsp、html 、vue、react一直在变，目前是nextjs之后也会继续学习，继续改变</p>
+                            </div>
+                        </div>
+                        <Comment/>
                     </div>
                 </div>
             </div>
