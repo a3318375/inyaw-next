@@ -30,7 +30,7 @@ jobs:
           password: ${{ secrets.PASSWORD }}
           port: ${{ secrets.PORT }}
           script: |
-            podman stop $(sudo podman ps -a | grep "inyaw-next" | awk '{print $1}')
-            podman rm -f $(sudo podman ps -a | grep inyaw-next | awk '{print $1}')
-            podman rmi $(sudo podman images | grep inyaw-next | awk '{print $3}')
-            podman run -d -p 3000:3000 --name inyaw-next --network inyaw --network-alias inyaw-next ccr.ccs.tencentyun.com/inyaa/inyaw-next:latest
+            docker stop $(sudo docker ps -a | grep "inyaw-next" | awk '{print $1}')
+            docker rm -f $(sudo docker ps -a | grep inyaw-next | awk '{print $1}')
+            docker rmi $(sudo docker images | grep inyaw-next | awk '{print $3}')
+            docker run -d -p 3000:3000 --name inyaw-next --network inyaw --network-alias inyaw-next ccr.ccs.tencentyun.com/inyaa/inyaw-next:latest
