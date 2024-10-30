@@ -10,7 +10,7 @@ import {
     navigationMenuTriggerStyle,
 } from "@/components/ui/navigation-menu"
 import clsx from "clsx";
-import Experience from "@/app/(article)/experience/page";
+import Experience from "@/app/(article)/me/page";
 
 
 export default function MainNav({menuHide}: { menuHide: boolean }) {
@@ -51,16 +51,16 @@ export default function MainNav({menuHide}: { menuHide: boolean }) {
                             </Link>
                         </NavigationMenuItem>
                         <NavigationMenuItem>
-                            <Link href="/experience" legacyBehavior passHref>
+                            <Link href="/me" legacyBehavior passHref>
                                 <NavigationMenuLink className={navigationMenuTriggerStyle()}>
-                                    个人经历
+                                    关于我
                                 </NavigationMenuLink>
                             </Link>
                         </NavigationMenuItem>
                         <NavigationMenuItem>
-                            <Link href="/me" legacyBehavior passHref>
+                            <Link href="/website" legacyBehavior passHref>
                                 <NavigationMenuLink className={navigationMenuTriggerStyle()}>
-                                    关于我
+                                    关于本站
                                 </NavigationMenuLink>
                             </Link>
                         </NavigationMenuItem>
