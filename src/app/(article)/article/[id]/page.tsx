@@ -80,7 +80,7 @@ export default async function Article({params: {id}}: { params: { id: number } }
                             <div className="prose max-w-none p-4 dark:prose-invert">
                                 <div className="entry-content">
                                     <MDXRemote
-                                        source={blogInfo.article.context}
+                                        source={blogInfo.context}
                                         components={{pre: pre}}
                                         options={{
                                             parseFrontmatter: true,
