@@ -33,7 +33,7 @@ export type BlogInfoType = {
     isComment?: boolean;
     isHot?: boolean;
     type?: InyaaBlogType;
-    article: InyaaBlogArticle;
+    context?: string;
     previousBlog?: BlogInfoType;
     nextBlog?: BlogInfoType;
     commentList?: InyawBlogComment[]
@@ -50,12 +50,6 @@ type InyaaBlogType = {
 
     value?: number;
     label?: string;
-}
-
-export type InyaaBlogArticle = {
-    id: number;
-    context: string;
-    topHtml?: any;
 }
 
 export type PostsPage = {
