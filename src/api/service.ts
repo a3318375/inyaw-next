@@ -42,6 +42,7 @@ export type BlogInfoType = {
 type InyawBlogComment = {
 
 }
+
 type InyaaBlogType = {
     id?: number;
     name?: string;
