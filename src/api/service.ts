@@ -33,7 +33,7 @@ export type BlogInfoType = {
     isComment?: boolean;
     isHot?: boolean;
     type?: InyaaBlogType;
-    context?: string;
+    context: string;
     previousBlog?: BlogInfoType;
     nextBlog?: BlogInfoType;
     commentList?: InyawBlogComment[]
