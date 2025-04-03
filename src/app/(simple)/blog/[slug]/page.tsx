@@ -19,7 +19,6 @@ export async function generateStaticParams() {
 
 async function findBlogList(slug: number) {
     const res = await fetch('https://admin.inyaw.com/api/blog/web/page?pageNumber=' + slug, {next: {tags: ['page']}})
-    console.log(1111, slug, res)
     const post = await res.json()
     if (post && post.success) {
         return post.data;
