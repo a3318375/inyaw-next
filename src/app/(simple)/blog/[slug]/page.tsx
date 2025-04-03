@@ -7,7 +7,7 @@ import dayjs from "dayjs";
 
 
 export async function generateStaticParams() {
-    const posts: BlogPageResult = await fetch('https://admin.inyaw.com/api/blog/web/page?pageNumber=1', {next: {tags: ['page']}}).then((res) => res.json())
+    const posts: BlogPageResult = await fetch('https://admin.inyaw.com/api/blog/web/page?pageNum=1', {next: {tags: ['page']}}).then((res) => res.json())
     if (posts && posts.data && posts.success) {
         return Array.from(new Array(posts.data.totalPage).keys()).map((page) => ({
             slug: page + '',
@@ -18,7 +18,7 @@ export async function generateStaticParams() {
 }
 
 async function findBlogList(slug: number) {
-    const res = await fetch('https://admin.inyaw.com/api/blog/web/page?pageNumber=' + slug, {next: {tags: ['page']}})
+    const res = await fetch('https://admin.inyaw.com/api/blog/web/page?pageNum=' + slug, {next: {tags: ['page']}})
     const post = await res.json()
     if (post && post.success) {
         return post.data;

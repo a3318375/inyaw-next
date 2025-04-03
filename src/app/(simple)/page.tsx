@@ -5,7 +5,7 @@ import { CalendarIcon, ArchiveIcon } from "@radix-ui/react-icons"
 import dayjs from "dayjs";
 
 async function findBlogList() {
-    const res = await fetch('https://admin.inyaw.com/api/blog/web/page?pageNumber=' + 1, {next: {tags: ['page']}})
+    const res = await fetch('https://admin.inyaw.com/api/blog/web/page?pageNum=' + 1, {next: {tags: ['page']}})
     const post = await res.json()
     if (post && post.success) {
         return post.data;
