@@ -5,9 +5,9 @@ import { CalendarIcon, ArchiveIcon } from "@radix-ui/react-icons"
 import dayjs from "dayjs";
 
 async function findBlogList() {
-    const res = await fetch('https://admin.inyaw.com/api/blog/web/page?page=' + 1, {next: {tags: ['page']}})
+    const res = await fetch('https://admin.inyaw.com/api/blog/web/page?pageNumber=' + 1, {next: {tags: ['page']}})
     const post = await res.json()
-    if (post && post.code && post.code === 1) {
+    if (post && post.success) {
         return post.data;
     } else {
         return []
@@ -19,7 +19,7 @@ export default async function Home() {
     const posts: PostsPage = await findBlogList()
     return (
         <div className="w-full grid gap-8">
-            {(posts && posts.content && posts.content.length > 0) && posts.content.map((item, index) => {
+            {(posts && posts.records && posts.records.length > 0) && posts.records.map((item, index) => {
                 return (
                     <div key={index}
                          className="w-full mx-auto bg-white bg-opacity-80 dark:bg-slate-900 rounded-xl shadow-[0_0px_10px_rgba(0,0,0,0.1)] overflow-hidden">
@@ -51,7 +51,7 @@ export default async function Home() {
             })}
             <div className="flex justify-center">
                 <Link href={'/blog/' + 2}
-                      className={clsx('relative ml-3 inline-flex items-center rounded-md bg-white bg-opacity-60 px-3 py-2 text-sm font-semibold text-gray-900 ring-1 ring-inset ring-gray-300 hover:text-red-400 focus-visible:outline-offset-0', posts.number + 1 > posts.totalPages ? '' : 'none')}
+                      className={clsx('relative ml-3 inline-flex items-center rounded-md bg-white bg-opacity-60 px-3 py-2 text-sm font-semibold text-gray-900 ring-1 ring-inset ring-gray-300 hover:text-red-400 focus-visible:outline-offset-0', posts.pageNumber + 1 > posts.totalPage ? '' : 'none')}
                 >
                     下一页
                 </Link>

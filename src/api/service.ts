@@ -16,6 +16,7 @@ export type BlogListResult = {
 }
 export type BlogPageResult = {
     code?: number,
+    success?: boolean,
     data?: PostsPage
 }
 
@@ -53,15 +54,11 @@ type InyaaBlogType = {
 }
 
 export type PostsPage = {
-    totalPages: number;
-    totalElements?: number;
-    size?: number;
-    content?: InyaaBlogVo[];
-    number: number;
-    numberOfElements?: number;
-    first?: boolean;
-    last?: boolean;
-    empty?: boolean;
+    totalPage: number;
+    totalRow?: number;
+    pageSize?: number;
+    records?: InyaaBlogVo[];
+    pageNumber: number;
 }
 
 export type BlogList = {
