@@ -9,9 +9,11 @@ import dayjs from "dayjs";
 export async function generateStaticParams() {
     const posts: BlogPageResult = await fetch('https://admin.inyaw.com/api/blog/web/page?pageNumber=1', {next: {tags: ['page']}}).then((res) => res.json())
     if (posts && posts.data && posts.success) {
-        return Array.from(new Array(posts.data.totalPage).keys()).map((page) => ({
-            slug: page + '',
-        }))
+        return Array.from(new Array(posts.data.totalPage).keys())
+            .map((page) => ({
+                slug: (page + 1) + '', // 通常页码从1开始，而不是0
+            }))
+            .filter(item => parseInt(item.slug) > 0)
     } else {
         return [{}]
     }
